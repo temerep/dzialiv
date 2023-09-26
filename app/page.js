@@ -56,7 +56,7 @@ export default function Home() {
         <div className="container px-5 py-24 mx-auto max-w-7xl flex">
           <div className="lg:w-1/2 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative drop-shadow-xl">
             <h2 className="text-gray-900 text-5xl mb-5 font-bold title-font">Контакти</h2>
-            <p className="mb-5 text-md text-gray-600">Ми завжди раді відповісти на ваші запитання. Зв'яжіться з нами за допомогою наступних контактних даних:</p>
+            <p className="mb-5 text-md text-gray-600">Ми завжди раді відповісти на ваші запитання. Зв`яжіться з нами за допомогою наступних контактних даних:</p>
             <h3 className="text-gray-900 font-bold my-2">
               Адреса:
               <br />

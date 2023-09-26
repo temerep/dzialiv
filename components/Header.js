@@ -52,7 +52,7 @@ const Header = () => {
           <div className="flex items-center justify-between h-14 md:h-20">
             <Link href="/" className="flex items-center">
               <Image src="/logo.png" width={50} height={50} alt="" />
-              <span className="text-white ml-1 md:ml-2 text-xl md:text-3xl font-bold">ФГ "Дзялів"</span>
+              <span className="text-white ml-1 md:ml-2 text-xl md:text-3xl font-bold">ФГ Дзялів</span>
             </Link>
             <ul className="hidden md:flex space-x-5 text-md md:text-xl font-semibold text-white">
               <Link href="/">
@@ -82,44 +82,44 @@ const Header = () => {
       </nav>
 
       {/* мобільне меню */}
-      <div id="mobile-menu" class="md:hidden fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-emerald-600 border-r-4 border-emerald-700 w-64">
+      <div id="mobile-menu" className="md:hidden fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-emerald-600 border-r-4 border-emerald-700 w-64">
         <div className="absolute top-0 left-0 w-full h-hull bg-black opacity-25 z-40"></div>
-        <button type="button" onClick={() => setMenu(!showMenu)} class="text-white bg-transparent  text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center ">
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+        <button type="button" onClick={() => setMenu(!showMenu)} className="text-white bg-transparent  text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center ">
+          <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
           </svg>
-          <span class="sr-only">Close menu</span>
+          <span className="sr-only">Close menu</span>
         </button>
-        <div class="py-4 overflow-y-auto mt-5">
+        <div className="py-4 overflow-y-auto mt-5">
           <div className="flex items-center mb-5">
 
           <Image src="/logo.png" className="mr-2" width={50} height={50} alt=""/>
-          <h1 className="text-xl text-white font-bold">ФГ "Дзялів"</h1>
+          <h1 className="text-xl text-white font-bold">ФГ Дзялів</h1>
           </div>
-          <ul class="flex flex-col justify-center space-y-2 font-bold">
+          <ul className="flex flex-col justify-center space-y-2 font-bold">
             <li className="border-2 border-white rounded-lg">
-              <Link href="/" class="flex items-center p-2 text-white  hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
-                <span class="ml-3">Головна</span>
+              <Link href="/" className="flex items-center p-2 text-white  hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
+                <span className="ml-3">Головна</span>
               </Link>
             </li>
             <li className="border-2 border-white rounded-lg">
-              <Link href="/about" class="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
-                <span class="flex-1 ml-3 whitespace-nowrap">Про нас</span>
+              <Link href="/about" className="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
+                <span className="flex-1 ml-3 whitespace-nowrap">Про нас</span>
               </Link>
             </li>
             <li className="border-2 border-white rounded-lg">
-              <Link href="/products" class="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
-                <span class="flex-1 ml-3 whitespace-nowrap">Продукція</span>
+              <Link href="/products" className="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
+                <span className="flex-1 ml-3 whitespace-nowrap">Продукція</span>
               </Link>
             </li>
             <li className="border-2 border-white rounded-lg">
-              <Link href="/products" class="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
-                <span class="flex-1 ml-3 whitespace-nowrap">Послуги</span>
+              <Link href="/products" className="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
+                <span className="flex-1 ml-3 whitespace-nowrap">Послуги</span>
               </Link>
             </li>
             <li className="w-full border-2 border-white rounded-lg">
-              <Link href="/contacts" class="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
-                <span class="flex-1 ml-3 whitespace-nowrap">Контакти</span>
+              <Link href="/contacts" className="flex items-center p-2 text-white   hover:bg-gray-100/3 group" onClick={()=>setMenu(!showMenu)}>
+                <span className="flex-1 ml-3 whitespace-nowrap">Контакти</span>
               </Link>
             </li>
           </ul>
