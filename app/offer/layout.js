@@ -22,10 +22,10 @@ export default function ProductLayout({ children }) {
               </svg>
             </div>
             <div className="max-h-0 overflow-hidden duration-300 group-focus:max-h-full">
-              <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="/products/item">
+              <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="/offer/item">
                 - Пшениця
               </Link>
-              <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="/products/item">
+              <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="/offer/item">
                 - Кукурудза
               </Link>
               <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="#">
