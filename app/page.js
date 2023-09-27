@@ -1,4 +1,5 @@
 'use client'
+import {items, services} from "@/app/config"
 import { HomeGrid } from "@/components/HomeGrid";
 import { Slideshow } from "@/components/Slideshow";
 import { LuWheat } from "react-icons/lu"
@@ -8,54 +9,6 @@ import {GiTomato} from "react-icons/gi"
 import Image from "next/image";
 
 export default function Home() {
-
-  const items = [
-    {
-      title: "Зернові",
-      categories: ["Пшениця", "Кукурудза", "Просо", "Ячмінь", "Овес", "Гречка" ],
-      img: "/photos/zernovi.webp",
-    },
-    {
-      title: "Технічні",
-      categories: ["Ріпак", "Соняшник"],
-      img: "/photos/tehnic.webp",
-    },
-    {
-      title: "Бобові",
-      categories: ["Горох", "Нут", "Боби", "Соя"],
-      img: "/photos/boby.webp",
-    },
-    {
-      title: "Овочі свіжі",
-      categories: ["Цибуля ріпчата", "Буряк"],
-      img: "/photos/ovochi.webp",
-    },
-    {
-      title: "Фрукти свіжі",
-      categories: ["Яблука", "Груша"],
-      img: "/photos/frukty.webp",
-    },
-    {
-      title: "Переробка",
-      categories: ["Пелети соломʼяні"],
-      img: "/photos/pererobka.webp",
-    }
-  ];
-
-  const services = [
-    {
-      title: "Очищення/cушіння зерна",
-      img: "/placeholder.png",
-    },
-    {
-      title: "Телескопічний навантажувач",
-      img: "/placeholder.png",
-    },
-    {
-      title: "Зважування (до 80т.)",
-      img: "/placeholder.png",
-    }
-  ];
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-stone-100">
       <Slideshow />

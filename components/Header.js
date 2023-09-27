@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PiGlobeSimpleBold, PiPhoneCallThin } from "react-icons/pi";
 import { BsFire } from "react-icons/bs";
+import { ImPhone } from "react-icons/im";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -19,6 +20,13 @@ const Header = () => {
 
   return (
     <>
+
+    <div className=" sm:hidden fixed bg-emerald-600 p-5 rounded-full bottom-2 left-2 border-4 border-emerald-700 drop-shadow-lg animate-bounce z-50">
+          <a href="tel:+380000000">
+            <ImPhone size="2em" className="text-white"/>
+          </a>
+    </div>
+
       {/* верхня панель контактів та мови */}
       <div className="hidden md:block sticky inset-x-0 overflow-hidden top-0 bg-stone-900 z-50">
         <div className="md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto ">
@@ -63,6 +71,9 @@ const Header = () => {
               </Link>
               <Link href="/offer/services">
                 <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Послуги</li>
+              </Link>
+              <Link href="/photos">
+                <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Фото</li>
               </Link>
               <li className="bg-emerald-600 hidden lg:flex items-center py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none animate-pulse">
                 <BsFire size="1.5em" color="#fff" className="mr-2" />

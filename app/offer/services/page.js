@@ -1,20 +1,7 @@
 import { HomeGrid } from "@/components/HomeGrid";
+import {services} from "@/app/config"
 
 export default function Services() {
-  const services = [
-    {
-      title: "Очищення/cушіння зерна",
-      img: "/placeholder.png",
-    },
-    {
-      title: "Телескопічний навантажувач",
-      img: "/placeholder.png",
-    },
-    {
-      title: "Зважування (до 80т.)",
-      img: "/placeholder.png",
-    }
-  ];
   return (
     <>
       <main className="flex flex-col items-center w-full p-5 bg-stone-200">
