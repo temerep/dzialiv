@@ -5,32 +5,32 @@ export default function Products() {
     {
       title: "Зернові",
       categories: ["Пшениця", "Кукурудза", "Просо", "Ячмінь", "Овес", "Гречка" ],
-      img: "/photos/zernovi.jpg",
+      img: "/photos/zernovi.webp",
     },
     {
       title: "Технічні",
       categories: ["Ріпак", "Соняшник"],
-      img: "/photos/tehnic.jpg",
+      img: "/photos/tehnic.webp",
     },
     {
       title: "Бобові",
       categories: ["Горох", "Нут", "Боби", "Соя"],
-      img: "/photos/boby.jpg",
+      img: "/photos/boby.webp",
     },
     {
       title: "Овочі свіжі",
       categories: ["Цибуля ріпчата", "Буряк"],
-      img: "/photos/ovochi.jpg",
+      img: "/photos/ovochi.webp",
     },
     {
       title: "Фрукти свіжі",
       categories: ["Яблука", "Груша"],
-      img: "/photos/frukty.jpg",
+      img: "/photos/frukty.webp",
     },
     {
       title: "Переробка",
       categories: ["Пелети соломʼяні"],
-      img: "/photos/pererobka.jpg",
+      img: "/photos/pererobka.webp",
     }
   ];
   return (

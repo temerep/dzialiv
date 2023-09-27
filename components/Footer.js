@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col min-[1080px]:flex-row justify-between">
           <div className="flex flex-col mb-6 md:mb-0">
             <Link href="/" className="flex items-center mb-5">
-              <Image src="/logo.png" width={80} height={80} alt="" />
+              <Image src="/logo.webp" width={80} height={80} alt="" />
               <h1 className="text-2xl font-bold ml-3 text-white">ФГ «Дзялів»</h1>
             </Link>
             <span className="text-sm text-white">

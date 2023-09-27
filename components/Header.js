@@ -25,7 +25,7 @@ const Header = () => {
           <div className="flex justify-between items-center h-14">
             <ul className="flex items-center text-white space-x-5">
               <li>
-                <Image className="hidden md:block" src="/stand.png" height={150} width={150} alt="Ukraine" />
+                <Image className="hidden md:block" src="/stand.webp" height={150} width={150} alt="Ukraine" />
               </li>
               <Link href="/about">
                 <li className="decoration-2 hover:underline decoration-emerald-600 cursor-pointer">Про нас</li>
@@ -51,7 +51,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-14 md:h-20">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" width={50} height={50} alt="" />
+              <Image src="/logo.webp" width={50} height={50} alt="" />
               <span className="text-white ml-1 md:ml-2 text-xl md:text-3xl font-bold">ФГ «Дзялів»</span>
             </Link>
             <ul className="hidden md:flex space-x-5 text-md md:text-xl font-semibold text-white">
@@ -93,7 +93,7 @@ const Header = () => {
         <div className="py-4 overflow-y-auto mt-5">
           <div className="flex items-center mb-5">
 
-          <Image src="/logo.png" className="mr-2" width={50} height={50} alt=""/>
+          <Image src="/logo.webp" className="mr-2" width={50} height={50} alt=""/>
           <h1 className="text-xl text-white font-bold">ФГ Дзялів</h1>
           </div>
           <ul className="flex flex-col justify-center space-y-2 font-bold">

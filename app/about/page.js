@@ -22,12 +22,12 @@ export default function About() {
               </div>
               <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
               <div className="absolute items-center overflow-hidden w-full justify-center -mt-0 -ml-0 md:-mt-5 md:-ml-10">
-                <Image src="/logo.png" width={120} height={120} alt="" className="" />
+                <Image src="/logo.webp" width={120} height={120} alt="" className="" />
               </div>
-              <Image src="/photos/about_1.jpg" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
+              <Image src="/photos/about_1.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
               <div className="grid grid-cols-2 mt-5 gap-5">
-              <Image src="/photos/about_2.jpg" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
-              <Image src="/photos/about_3.jpg" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
+              <Image src="/photos/about_2.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
+              <Image src="/photos/about_3.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
               </div>
               </div>
             </div>
