@@ -5,9 +5,9 @@ import Image from "next/image";
 
 const Slideshow = () => {
   const images = [
-    { img: "/photos/slider.jpg", title: "Послуги сушки зерна та зважування", desc: "Тільки найкраща техніка для найвищої якості вашого продукту"},
-    { img: "/photos/slider1.jpg", title: "Смачні та Поживні Зернові", desc: "Відкрийте світ смаку та користі з нашим вибором найсмачніших та найпоживніших зернових культур. Обирайте якість для здорового способу життя"},
-    { img: "/photos/slider3.jpg", title: "Свіжа та Смачна Цибуля до Ваших Страв", desc: "Додайте неповторний смак до своїх страв з нашою свіжою цибулею. Оберіть найкраще для особливих страв та насолоджуйтеся вишуканим смаком."}];
+    { img: "/photos/slider.jpg", title: "Послуги сушки, зважування, навантажувача", desc: "Ми використовуємо найкращу техніку при наданні послуг."},
+    { img: "/photos/slider1.jpg", title: "Пелети з соломи для будь-яких цілей", desc: "Обирайте якість за вигідну ціну. Паливні, кормові, підстилочні пелети."},
+    { img: "/photos/slider3.jpg", title: "Свіжа та cмачна цибуля до Ваших страв", desc: "Додайте неповторний смак до своїх страв з нашою свіжою цибулею."}];
 
   const zoomInProperties = {
     scale: 1,
@@ -15,12 +15,12 @@ const Slideshow = () => {
     transitionDuration: 300,
     infinite: true,
     prevArrow: (
-      <div className="ml-10 top-40 md:top-72">
+      <div className="ml-1 sm:ml-10 top-40 md:top-72">
         <IoIosArrowBack size="1.5em" color="#fff" className="cursor-pointer" />
       </div>
     ),
     nextArrow: (
-      <div className="mr-10 top-40 md:top-72">
+      <div className="mr-1 sm:mr-10 top-40 md:top-72">
         <IoIosArrowForward size="1.5em" color="#fff" className="cursor-pointer" />
       </div>
     ),
@@ -29,12 +29,12 @@ const Slideshow = () => {
     <div className="w-full h-full">
       <Zoom {...zoomInProperties}>
         {images.map((each, index) => (
-          <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[70vh] relative">
+          <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[50vh] sm:h-[70vh] relative">
             <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
-            <div className="absolute w-full h-[70vh] bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_6.82%,rgba(0,0,0,0.00)_81.44%)]"></div>
-            <div className="flex flex-col space-y-4 p-24 md:p-48 ">
-            <h1 className="z-10 md:text-6xl text-4xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
-            <p className="z-10 md:text-2xl text-xl font-bold text-white">{each.desc}</p>
+            <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
+            <div className="flex flex-col space-y-4 p-12 sm:p-24 md:p-48 ">
+            <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
+            <p className="z-10 md:text-2xl text-xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.desc}</p>
             </div>
           </div>
         ))}

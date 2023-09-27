@@ -2,6 +2,8 @@
 import { HomeGrid } from "@/components/HomeGrid";
 import { Slideshow } from "@/components/Slideshow";
 import { LuWheat } from "react-icons/lu"
+import { PiPlant } from "react-icons/pi"
+import {MdMiscellaneousServices} from "react-icons/md"
 import {GiTomato} from "react-icons/gi"
 import Image from "next/image";
 
@@ -10,32 +12,63 @@ export default function Home() {
   const items = [
     {
       title: "Зернові",
-      categories: ["Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас"],
-      img: "/photo/test.jpg",
+      categories: ["Пшениця", "Кукурудза", "Просо", "Ячмінь", "Овес", "Гречка" ],
+      img: "/photos/zernovi.jpg",
     },
     {
-      title: "Овочі",
-      categories: ["Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас"],
-      img: "/photo/test.jpg",
+      title: "Технічні",
+      categories: ["Ріпак", "Соняшник"],
+      img: "/photos/tehnic.jpg",
     },
     {
-      title: "Овочі",
-      categories: ["Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас"],
-      img: "/photo/test.jpg",
+      title: "Бобові",
+      categories: ["Горох", "Нут", "Боби", "Соя"],
+      img: "/photos/boby.jpg",
     },
     {
-      title: "Овочі",
-      categories: ["Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас", "Пшениця 1 клас"],
-      img: "/photo/test.jpg",
+      title: "Овочі свіжі",
+      categories: ["Цибуля ріпчата", "Буряк"],
+      img: "/photos/ovochi.jpg",
+    },
+    {
+      title: "Фрукти свіжі",
+      categories: ["Яблука", "Груша"],
+      img: "/photos/frukty.jpg",
+    },
+    {
+      title: "Переробка",
+      categories: ["Пелети соломʼяні"],
+      img: "/photos/pererobka.jpg",
+    }
+  ];
+
+  const services = [
+    {
+      title: "Очищення/cушіння зерна",
+      img: "/placeholder.png",
+    },
+    {
+      title: "Телескопічний навантажувач",
+      img: "/placeholder.png",
+    },
+    {
+      title: "Зважування (до 80т.)",
+      img: "/placeholder.png",
     }
   ];
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-white">
+    <main className="flex min-h-screen w-full flex-col items-center bg-stone-100">
       <Slideshow />
       <div className="flex flex-col items-center justify-center w-full border-t-8 border-emerald-600">
-          <h1 className="text-5xl font-bold pt-10">Продукція</h1>
-          <div className="py-20">
+          <h1 className="flex text-3xl md:text-5xl font-black mt-10 md:mt-20"><PiPlant size="1em" className="mr-3 text-emerald-600"/>Продукція</h1>
+          <div className="py-5 md:py-10">
           <HomeGrid products={items}/>
+          </div>
+      </div>
+      <div className="flex flex-col items-center bg-[#30576b] justify-center w-full">
+          <h1 className="flex text-3xl md:text-5xl text-white font-black mt-10 md:mt-20"><MdMiscellaneousServices size="1em" className="mr-3 text-white"/>Послуги</h1>
+          <div className="py-5 md:py-10">
+          <HomeGrid products={services}/>
           </div>
       </div>
       <section className="w-full relative" id="contacts">
