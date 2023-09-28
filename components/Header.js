@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import {items, services} from "@/app/config"
 import { PiGlobeSimpleBold, PiPhoneCallThin } from "react-icons/pi";
 import { BsFire } from "react-icons/bs";
 import { ImPhone } from "react-icons/im";
@@ -8,19 +9,22 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const [showMenu, setMenu] = useState(false);
+  const [showDrop, setDrop] = useState(false);
+  const [showLanguage, setLanguage] = useState(false);
 
   useEffect(() => {
-    let mobile = document.querySelector("#mobile-menu");
-    if (showMenu == false) {
-      mobile.classList.add("-translate-x-full");
-    } else {
-      mobile.classList.remove("-translate-x-full");
-    }
-  }, [showMenu]);
+    const dropdownLanguage = document.querySelector('#dropdown-language');
+    const dropdownMenu = document.querySelector('#dropdown-menu');
+    const mobile = document.querySelector("#mobile-menu");
+    (showMenu == false) ? mobile.classList.add("-translate-x-full") : mobile.classList.remove("-translate-x-full");
+    (showLanguage == false) ? dropdownLanguage.classList.add('hidden') : dropdownLanguage.classList.remove('hidden');
+    (showDrop == false) ? dropdownMenu.classList.add('hidden') : dropdownMenu.classList.remove('hidden');
+    
+    
+  }, [showMenu, showLanguage, showDrop]);
 
   return (
     <>
-
     <div className=" sm:hidden fixed bg-emerald-600 p-5 rounded-full bottom-2 left-2 border-4 border-emerald-700 drop-shadow-lg animate-bounce z-50">
           <a href="tel:+380000000">
             <ImPhone size="2em" className="text-white"/>
@@ -28,7 +32,7 @@ const Header = () => {
     </div>
 
       {/* верхня панель контактів та мови */}
-      <div className="hidden md:block sticky inset-x-0 overflow-hidden top-0 bg-stone-900 z-50">
+      <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-50">
         <div className="md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto ">
           <div className="flex justify-between items-center h-14">
             <ul className="flex items-center text-white space-x-5">
@@ -46,16 +50,27 @@ const Header = () => {
                 +38 (096)-427-13-75
               </li>
             </ul>
-            <div className="flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
+            <div className="flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" onMouseEnter={() => setLanguage(true)} onMouseLeave={() => setTimeout(() => setLanguage(false), 500)} id="language">
               <PiGlobeSimpleBold size="1.25em" color="#fff" />
               <p className="pl-1 text-white">UA</p>
+              <div id="dropdown-language" class="hidden absolute top-12 -ml-32 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setLanguage(true)} onMouseLeave={() => setTimeout(() => setLanguage(false), 500)}>
+                <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇬🇧 English</a>
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇺🇦 Українська</a>
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇵🇱 Polska</a>
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇩🇪 Deutsch</a>
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇱🇹 Lietuvių</a>
+                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇷🇴 Românesc</a>
+              </div>
             </div>
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* меню під десктоп */}
-      <nav className="sticky inset-x-0 top-0 md:top-14 z-50 overflow-hidden border-b-4 border-emerald-700 md:shadow-lg md:border-0" id="menu">
+      <nav className="sticky inset-x-0 top-0 md:top-14 z-40 overflow-y-visible border-b-4 border-emerald-700 md:shadow-lg md:border-0" id="menu">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-14 md:h-20">
             <Link href="/" className="flex items-center">
@@ -66,8 +81,17 @@ const Header = () => {
               <Link href="/">
                 <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Головна</li>
               </Link>
-              <Link href="/offer/products">
+              <Link href="/offer/products" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setTimeout(() => setDrop(false), 500)}>
                 <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Продукція</li>
+                <div id="dropdown-menu" class="hidden absolute top-34 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setTimeout(() => setDrop(false), 500)}>
+                  <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+                    {items.map((el) => {
+                      return(
+                        <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">{el.title}</a>
+                      )
+                    })}
+                  </div>
+                </div>
               </Link>
               <Link href="/offer/services">
                 <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Послуги</li>
@@ -97,7 +121,7 @@ const Header = () => {
         <div className="absolute top-0 left-0 w-full h-hull bg-black opacity-25 z-40"></div>
         <button type="button" onClick={() => setMenu(!showMenu)} className="text-white bg-transparent  text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center ">
           <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
           </svg>
           <span className="sr-only">Close menu</span>
         </button>

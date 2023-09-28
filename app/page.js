@@ -30,13 +30,13 @@ export default function Home() {
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21655.15627131309!2d28.13398468574302!3d48.9202756970125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1suk!2sua!4v1694762454383!5m2!1suk!2sua"
             width="100%"
             height="100%"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
+            frameBorder="0"
+            marginHeight="0"
+            marginWidth="0"
             title='ФГ "Дзялів"'
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="container px-5 py-24 mx-auto max-w-7xl flex">
