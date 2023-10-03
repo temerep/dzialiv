@@ -2,26 +2,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import {items, services} from "@/app/config"
-import { PiGlobeSimpleBold, PiPhoneCallThin } from "react-icons/pi";
-import { BsFire } from "react-icons/bs";
+import { PiGlobeSimpleBold, PiPhoneCallThin,PiPhoneCallFill } from "react-icons/pi";
 import { ImPhone } from "react-icons/im";
 import { useEffect, useState } from "react";
 
 const Header = () => {
   const [showMenu, setMenu] = useState(false);
-  const [showDrop, setDrop] = useState(false);
-  const [showLanguage, setLanguage] = useState(false);
+  // const [showDrop, setDrop] = useState(false);
+  // const [showLanguage, setLanguage] = useState(false);
 
   useEffect(() => {
-    const dropdownLanguage = document.querySelector('#dropdown-language');
-    const dropdownMenu = document.querySelector('#dropdown-menu');
+    // const dropdownLanguage = document.querySelector('#dropdown-language');
+    // const dropdownMenu = document.querySelector('#dropdown-menu');
     const mobile = document.querySelector("#mobile-menu");
     (showMenu == false) ? mobile.classList.add("-translate-x-full") : mobile.classList.remove("-translate-x-full");
-    (showLanguage == false) ? dropdownLanguage.classList.add('hidden') : dropdownLanguage.classList.remove('hidden');
-    (showDrop == false) ? dropdownMenu.classList.add('hidden') : dropdownMenu.classList.remove('hidden');
+    // (showLanguage == false) ? dropdownLanguage.classList.add('hidden') : dropdownLanguage.classList.remove('hidden');
+    // (showDrop == false) ? dropdownMenu.classList.add('hidden') : dropdownMenu.classList.remove('hidden');
     
     
-  }, [showMenu, showLanguage, showDrop]);
+  }, [showMenu]);
 
   return (
     <>
@@ -53,16 +52,16 @@ const Header = () => {
             <div className="flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" onMouseEnter={() => setLanguage(true)} onMouseLeave={() => setTimeout(() => setLanguage(false), 500)} id="language">
               <PiGlobeSimpleBold size="1.25em" color="#fff" />
               <p className="pl-1 text-white">UA</p>
-              <div id="dropdown-language" class="hidden absolute top-12 -ml-32 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setLanguage(true)} onMouseLeave={() => setTimeout(() => setLanguage(false), 500)}>
-                <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇬🇧 English</a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇺🇦 Українська</a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇵🇱 Polska</a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇩🇪 Deutsch</a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇱🇹 Lietuvių</a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇷🇴 Românesc</a>
+              {/* <div id="dropdown-language" className="hidden absolute top-12 -ml-32 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setLanguage(true)} onMouseLeave={() => setTimeout(() => setLanguage(false), 500)}>
+                <div className="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇬🇧 English</a>
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇺🇦 Українська</a>
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇵🇱 Polska</a>
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇩🇪 Deutsch</a>
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇱🇹 Lietuvių</a>
+                    <a className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">🇷🇴 Românesc</a>
               </div>
-            </div>
+            </div> */}
             </div>
 
           </div>
@@ -78,30 +77,30 @@ const Header = () => {
               <span className="text-white ml-1 md:ml-2 text-xl md:text-3xl font-bold">ФГ «Дзялів»</span>
             </Link>
             <ul className="hidden md:flex space-x-5 text-md md:text-xl font-semibold text-white">
-              <Link href="/">
-                <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Головна</li>
+              <Link href="/" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <li className="p-3 skew-x-12">Головна</li>
               </Link>
-              <Link href="/offer/products" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setTimeout(() => setDrop(false), 500)}>
-                <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Продукція</li>
-                <div id="dropdown-menu" class="hidden absolute top-34 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setTimeout(() => setDrop(false), 500)}>
-                  <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+              <Link href="/offer/products" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <li className="p-3 skew-x-12">Продукція</li>
+                {/* <div id="dropdown-menu" className="hidden absolute top-34 z-50 w-48 rounded-md shadow-lg bg-white" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setTimeout(() => setDrop(false), 500)}>
+                  <div className="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
                     {items.map((el) => {
                       return(
-                        <a class="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">{el.title}</a>
+                        <a key={el.title} className="flex rounded-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">{el.title}</a>
                       )
                     })}
                   </div>
-                </div>
+                </div> */}
               </Link>
-              <Link href="/offer/services">
-                <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Послуги</li>
+              <Link href="/offer/services" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <li className="p-3 skew-x-12">Послуги</li>
               </Link>
-              <Link href="/photos">
-                <li className="p-2 md:hover:bg-emerald-600 rounded-lg">Фото</li>
+              <Link href="/photos" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <li className="p-3 skew-x-12">Фото</li>
               </Link>
-              <li className="bg-emerald-600 hidden lg:flex items-center py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none animate-pulse">
-                <BsFire size="1.5em" color="#fff" className="mr-2" />
-                Спеціальна пропозиція
+              <li className="bg-emerald-600 hidden lg:flex items-center -skew-x-12 py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
+                <PiPhoneCallFill className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff"/>
+                <span className="animate-pulse skew-x-12">Звʼязатися</span>
               </li>
             </ul>
             <button className="flex bg-emerald-600 drop-shadow-xl py-2 px-3 rounded-lg md:hidden" onClick={() => setMenu(!showMenu)}>

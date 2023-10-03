@@ -5,9 +5,10 @@ import Image from "next/image";
 
 const Slideshow = () => {
   const images = [
-    { img: "/photos/slider.webp", title: "Послуги сушки, зважування, навантажувача", desc: "Ми використовуємо найкращу техніку при наданні послуг."},
-    { img: "/photos/slider1.webp", title: "Пелети з соломи для будь-яких цілей", desc: "Обирайте якість за вигідну ціну. Паливні, кормові, підстилочні пелети."},
-    { img: "/photos/slider3.webp", title: "Свіжа та cмачна цибуля до Ваших страв", desc: "Додайте неповторний смак до своїх страв з нашою свіжою цибулею."}];
+    { img: "/photos/slider.webp", title: "Послуги сушки, зважування, навантажувача", desc: "Ми використовуємо найкращу техніку при наданні послуг." },
+    { img: "/photos/slider1.webp", title: "Пелети з соломи для будь-яких цілей", desc: "Обирайте якість за вигідну ціну. Паливні, кормові, підстилочні пелети." },
+    { img: "/photos/slider3.webp", title: "Свіжа та cмачна цибуля до Ваших страв", desc: "Додайте неповторний смак до своїх страв з нашою свіжою цибулею." },
+  ];
 
   const zoomInProperties = {
     scale: 1,
@@ -26,20 +27,22 @@ const Slideshow = () => {
     ),
   };
   return (
-    <div className="w-full h-full">
-      <Zoom {...zoomInProperties}>
-        {images.map((each, index) => (
-          <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[50vh] sm:h-[70vh] relative">
-            <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
-            <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
-            <div className="flex flex-col space-y-4 p-12 sm:p-24 md:p-48 ">
-            <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
-            <p className="z-10 md:text-2xl text-xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.desc}</p>
+    <>
+      <div className="w-full h-full">
+        <Zoom {...zoomInProperties}>
+          {images.map((each, index) => (
+            <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[50vh] sm:h-[70vh] relative">
+              <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
+              <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
+              <div className="flex flex-col space-y-4 p-12 sm:p-24 md:p-48 ">
+                <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
+                <p className="z-10 md:text-2xl text-xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Zoom>
-    </div>
+          ))}
+        </Zoom>
+      </div>
+    </>
   );
 };
 

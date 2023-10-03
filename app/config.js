@@ -43,6 +43,10 @@ export const services = [
   {
     title: "Зважування (до 80т.)",
     img: "/photos/vagy.jpg",
+  },
+  {
+    title: "Зважування (до 80т.)",
+    img: "/photos/vagy.jpg",
   }
 ];
 
