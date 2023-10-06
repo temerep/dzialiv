@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Suspense } from 'react'
-import { Loading } from './loading'
+import { Loading } from '@/components/Loading'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
