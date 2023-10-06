@@ -25,17 +25,20 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto md:px-6 mt-24">
-          <div className="flex flex-wrap">
-            <div className="px-4 mb-10 lg:mb-0 ">
-              <div className="container mx-auto px-6 md:px-12 xl:px-32">
-                <div className="mb-16 text-center">
-                  <h2 className="mb-4 text-center text-2xl text-gray-900 font-bold md:text-4xl">Наша команда</h2>
-                </div>
+        <div className="max-w-7xl w-full mx-auto md:px-6 mt-24">
+          <div className="flex flex-wrap w-full">
+            <div className="px-4 mb-10 w-full lg:mb-0">
+              <div className="w-full mx-auto">
+              <div className="pl-4 mb-6 border-l-4 border-emerald-500">
+                  <h1 className="mt-2 text-3xl font-black md:text-5xl text-emerald-600">Наша команда</h1>
+              </div>
+              <p className="px-4 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                Наш успіх - це результат невтомної роботи та пристрасного підходу нашої команди. Ось обличя, які стоять за успішним фермерським господарством «Дзялів»:
+                </p>
                 <div className="grid gap-12 items-center md:grid-cols-3">
                   <div className="space-y-4 text-center">
                     <Image
-                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-200"
+                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
                       src="https://tailus.io/sources/blocks/classic/preview/images/woman1.jpg"
                       loading="lazy"
                       width={600}
@@ -44,12 +47,12 @@ export default function About() {
                     />
                     <div>
                       <h4 className="text-2xl">Іванов Іван</h4>
-                      <span className="block text-sm text-gray-500">Власник</span>
+                      <span className="block text-sm text-gray-500">керівник відділу зернових</span>
                     </div>
                   </div>
                   <div className="space-y-4 text-center">
                     <Image
-                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-64 lg:hover:h-80 duration-200"
+                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
                       src="https://tailus.io/sources/blocks/classic/preview/images/man.jpg"
                       loading="lazy"
                       width={600}
@@ -58,12 +61,12 @@ export default function About() {
                     />
                     <div>
                       <h4 className="text-2xl">Іванов Іван</h4>
-                      <span className="block text-sm text-gray-500">Директор</span>
+                      <span className="block text-sm text-gray-500">керівник відділу овочів і фруктів</span>
                     </div>
                   </div>
                   <div className="space-y-4 text-center">
                     <Image
-                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-200"
+                      className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
                       src="https://tailus.io/sources/blocks/classic/preview/images/woman.jpg"
                       loading="lazy"
                       width={600}
