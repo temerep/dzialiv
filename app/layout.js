@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Suspense } from 'react'
-import { Loading } from '@/components/Loading'
+// import { Suspense } from 'react'
+// import { Loading } from '@/components/Loading'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -45,9 +45,9 @@ export default function RootLayout({ children }) {
       <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
         <div className="flex w-full flex-col">
         <Header />
-        <Suspense fallback={<Loading/>}>
+        {/* <Suspense fallback={<Loading/>}> */}
         <main className="flex w-full ">{children}</main>
-        </Suspense>
+        {/* </Suspense> */}
         <Footer />
         </div>
       </body>
