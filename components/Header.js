@@ -17,11 +17,11 @@ const Header = () => {
 
   return (
     <>
-      <div className=" sm:hidden fixed bg-emerald-600 p-5 rounded-full bottom-2 left-2 border-4 border-emerald-700 drop-shadow-lg animate-bounce z-50">
+      {/* <div className=" sm:hidden fixed bg-emerald-600 p-5 rounded-full bottom-2 left-2 border-4 border-emerald-700 drop-shadow-lg animate-bounce z-50">
         <a href="tel:+380000000">
           <ImPhone size="2em" className="text-white" />
         </a>
-      </div>
+      </div> */}
 
       {/* верхня панель контактів та мови */}
       <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-50">
@@ -37,10 +37,10 @@ const Header = () => {
               <Link href="/contacts">
                 <li className="decoration-2 hover:underline decoration-emerald-600 cursor-pointer">Контактна інформація</li>
               </Link>
-              <a href="mailto:dzialiv@gmail.com">
+              <a href="mailto:dzyaliv@ukr.net">
               <li className="flex items-center decoration-2 hover:underline decoration-emerald-600 cursor-pointer">
                 <HiMail size="1.25em" color="#fff" className="mr-2" />
-                dzialiv@gmail.com
+                dzyaliv@ukr.net
               </li>
               </a>
             </ul>
@@ -196,7 +196,7 @@ const Header = () => {
             </div> */}
             <div className="flex mt-10 px-2 py-1 border-2 rounded-lg items-center border-white  md:hover:bg-emerald-600 cursor-pointer" id="language" onClick={() => setMenu(!showMenu)}>
               <PiGlobeSimpleBold size="1.25em" color="#fff" />
-              <p className="pl-1 text-white">UA</p>
+              <p className="pl-1 text-white">Українська</p>
             </div>
           </div>
         </div>

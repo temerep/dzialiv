@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
             <div className="text-white">
               <h2 className="mb-4 text-xl font-semibold text-white/70">Контакти</h2>
-              <p className="">E-mail: <a href="mailto:info@dzialiv.vn.ua" className="underline underline-offset-4 decoration-green-300">dzialiv@gmail.com</a></p>
+              <p className="">E-mail: <a href="mailto:dzyaliv@ukr.net" className="underline underline-offset-4 decoration-green-300">dzyaliv@ukr.net</a></p>
             </div>
           </div>
         </div>
