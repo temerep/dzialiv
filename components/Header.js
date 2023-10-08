@@ -190,10 +190,10 @@ const Header = () => {
             </li>
           </ul>
           <div className="space-y-3">
-            <div className="flex mt-10 text-white decoration-2 hover:underline decoration-emerald-600 cursor-pointer" onClick={() => setMenu(!showMenu)}>
+            {/* <div className="flex mt-10 text-white decoration-2 hover:underline decoration-emerald-600 cursor-pointer" onClick={() => setMenu(!showMenu)}>
               <PiPhoneCallThin size="1.25em" color="#fff" className="mr-2" />
               +38 (096)-427-13-75
-            </div>
+            </div> */}
             <div className="flex px-2 py-1 border-2 rounded-lg items-center border-white  md:hover:bg-emerald-600 cursor-pointer" id="language" onClick={() => setMenu(!showMenu)}>
               <PiGlobeSimpleBold size="1.25em" color="#fff" />
               <p className="pl-1 text-white">UA</p>
