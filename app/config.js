@@ -47,13 +47,6 @@ export const products = [
   },
   {
     img: "/photos/frukty.webp",
-    name: "Груша",
-    desc: "/grusha",
-    subcategory_id: "Фрукти свіжі",
-    pricelist: "http://localhost.com"
-  },
-  {
-    img: "/photos/frukty.webp",
     name: "Яблука",
     desc: "/yabluka",
     subcategory_id: "Фрукти свіжі",
@@ -81,27 +74,6 @@ export const products = [
     pricelist: "http://localhost.com"
   },
   {
-    img: "/photos/boby.webp",
-    name: "Боби",
-    desc: "/boby",
-    subcategory_id: "Бобові",
-    pricelist: "http://localhost.com"
-  },
-  {
-    img: "/photos/boby.webp",
-    name: "Нут",
-    desc: "/nut",
-    subcategory_id: "Бобові",
-    pricelist: "http://localhost.com"
-  },
-  {
-    img: "/photos/boby.webp",
-    name: "Горох",
-    desc: "/goroh",
-    subcategory_id: "Бобові",
-    pricelist: "http://localhost.com"
-  },
-  {
     img: "/photos/tehnic.webp",
     name: "Соняшник",
     desc: "/sonyah",
@@ -119,20 +91,6 @@ export const products = [
     img: "/photos/zernovi.webp",
     name: "Гречка",
     desc: "/grechka",
-    subcategory_id: "Зернові культури",
-    pricelist: "http://localhost.com"
-  },
-  {
-    img: "/photos/zernovi.webp",
-    name: "Овес",
-    desc: "/oves",
-    subcategory_id: "Зернові культури",
-    pricelist: "http://localhost.com"
-  },
-  {
-    img: "/photos/zernovi.webp",
-    name: "Ячмінь",
-    desc: "/yachmin",
     subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
