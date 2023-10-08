@@ -45,7 +45,7 @@ export default function About() {
                   <div className="space-y-4 text-center">
                     <Image
                       className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
-                      src="https://tailus.io/sources/blocks/classic/preview/images/woman1.jpg"
+                      src="/placeholder.png"
                       loading="lazy"
                       width={600}
                       height={600}
@@ -59,7 +59,7 @@ export default function About() {
                   <div className="space-y-4 text-center">
                     <Image
                       className="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
-                      src="https://tailus.io/sources/blocks/classic/preview/images/man.jpg"
+                      src="/placeholder.png"
                       loading="lazy"
                       width={600}
                       height={600}
@@ -73,7 +73,7 @@ export default function About() {
                   <div className="space-y-4 text-center">
                     <Image
                       className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64 lg:hover:h-80 duration-500"
-                      src="https://tailus.io/sources/blocks/classic/preview/images/woman.jpg"
+                      src="/placeholder.png"
                       loading="lazy"
                       width={600}
                       height={600}
