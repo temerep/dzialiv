@@ -4,6 +4,7 @@ import Image from "next/image";
 import { subcategories, products, services } from "@/app/config";
 import { PiGlobeSimpleBold, PiPhoneCallThin, PiPhoneCallFill } from "react-icons/pi";
 import { ImPhone } from "react-icons/im";
+import { HiMail } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -36,10 +37,12 @@ const Header = () => {
               <Link href="/contacts">
                 <li className="decoration-2 hover:underline decoration-emerald-600 cursor-pointer">Контактна інформація</li>
               </Link>
+              <a href="mailto:dzialiv@gmail.com">
               <li className="flex items-center decoration-2 hover:underline decoration-emerald-600 cursor-pointer">
-                <PiPhoneCallThin size="1.25em" color="#fff" className="mr-2" />
-                +38 (099)-999-00-99
+                <HiMail size="1.25em" color="#fff" className="mr-2" />
+                dzialiv@gmail.com
               </li>
+              </a>
             </ul>
             <div class="group inline-block relative">
               <button className="inline-flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
@@ -128,7 +131,7 @@ const Header = () => {
               </Link>
               <Link href="/contacts">
               <li className="bg-emerald-600 hidden lg:flex items-center max-w-min -skew-x-12 py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
-                <PiPhoneCallFill className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff" />
+                <HiMail className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff" />
                 <span className="animate-pulse skew-x-12">Звʼязатися</span>
               </li>
               </Link>

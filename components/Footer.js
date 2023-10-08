@@ -27,7 +27,6 @@ const Footer = () => {
             </div>
             <div className="text-white">
               <h2 className="mb-4 text-xl font-semibold text-white/70">Контакти</h2>
-              <p className="">Телефон: <a href="tel:+380000000000" className="underline underline-offset-4 decoration-green-300">+38(099)9990099</a></p>
               <p className="">E-mail: <a href="mailto:info@dzialiv.vn.ua" className="underline underline-offset-4 decoration-green-300">dzialiv@gmail.com</a></p>
             </div>
           </div>

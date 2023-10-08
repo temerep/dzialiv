@@ -76,19 +76,10 @@ export default function Home() {
                 <span className="text-emerald-600">вул. Перемоги 3, <br></br>с. Камʼяногірка, Вінницька обл.</span>
               </h3>
               <h3 className="text-gray-900 font-bold my-2">
-                Телефон:
-                <br />
-                <span className="text-emerald-600">
-                  <a href="tel:+380345353443">+380000000000</a>
-                  <br />
-                  <a href="tel:+380456546456">+380000000000</a>
-                </span>
-              </h3>
-              <h3 className="text-gray-900 font-bold my-2">
                 E-mail:
                 <br />
                 <a href="mailto:dzialiv@gmail.com" className="font-bold text-emerald-600">
-                  dzialiv@gmail.com
+                  dzyaliv@ukr.net
                 </a>
               </h3>
             </div>

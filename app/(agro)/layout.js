@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { subcategories, services, products } from "../config";
@@ -17,7 +17,6 @@ export default function ProductLayout({ children }) {
               </div>
             </Link>
           </button>
-
           {subcategories.map((el) => {
             return (
               <>

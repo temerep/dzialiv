@@ -52,8 +52,6 @@ export default function Contacts() {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex items-center p-2 bg-white w-full rounded-lg cursor-pointer"><HiMail size="1em" className="text-emerald-600 mr-2"/><h2 className="text-xl text-stone-800">dzialiv@gmail.com</h2></div>
-                  <div className="flex items-center p-2 pt-3 w-full"><BsFillTelephoneFill size="1em" className="mr-2"/><p className="text-lg">+38 (099)-999-00-99</p></div>
-                  <div className="flex items-center p-2 w-full"><BsFillTelephoneFill size="1em" className="mr-2"/><p className="text-lg">+38 (099)-999-00-99</p></div>
                 </div>
               </div>
             </div>
