@@ -194,7 +194,7 @@ const Header = () => {
               <PiPhoneCallThin size="1.25em" color="#fff" className="mr-2" />
               +38 (096)-427-13-75
             </div> */}
-            <div className="flex px-2 py-1 border-2 rounded-lg items-center border-white  md:hover:bg-emerald-600 cursor-pointer" id="language" onClick={() => setMenu(!showMenu)}>
+            <div className="flex mt-10 px-2 py-1 border-2 rounded-lg items-center border-white  md:hover:bg-emerald-600 cursor-pointer" id="language" onClick={() => setMenu(!showMenu)}>
               <PiGlobeSimpleBold size="1.25em" color="#fff" />
               <p className="pl-1 text-white">UA</p>
             </div>
