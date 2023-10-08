@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function About() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full overflow-hidden">
       <section className="p-5 py-12 min-[1080px]:p-20 bg-stone-100 w-full" id="about">
         <div className="max-w-7xl mx-auto md:px-6">
           <div className="flex flex-wrap ">
