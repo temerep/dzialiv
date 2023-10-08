@@ -1,15 +1,11 @@
 import { Zoom } from "react-slideshow-image";
+import { slideshow } from "@/app/config";
 import "react-slideshow-image/dist/styles.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { BsArrowRight } from "react-icons/bs"
 import Image from "next/image";
 
 const Slideshow = () => {
-  const images = [
-    { img: "/photos/slider.webp", title: "Послуги сушки, зважування, навантажувача", desc: "Ми використовуємо найкращу техніку при наданні послуг." },
-    { img: "/photos/slider1.webp", title: "Пелети з соломи для будь-яких цілей", desc: "Обирайте якість за вигідну ціну. Паливні, кормові, підстилочні пелети." },
-    { img: "/photos/slider3.webp", title: "Свіжа та cмачна цибуля до Ваших страв", desc: "Додайте неповторний смак до своїх страв з нашою свіжою цибулею." },
-  ];
-
   const zoomInProperties = {
     scale: 1,
     duration: 3000,
@@ -30,13 +26,16 @@ const Slideshow = () => {
     <>
       <div className="w-full h-full">
         <Zoom {...zoomInProperties}>
-          {images.map((each, index) => (
+          {slideshow.map((each, index) => (
             <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[50vh] sm:h-[70vh] relative">
               <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
               <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
               <div className="flex flex-col space-y-4 p-12 sm:p-24 md:p-48 ">
                 <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
                 <p className="z-10 md:text-2xl text-xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.desc}</p>
+                <button className="bg-emerald-600 max-w-min inline-flex items-center py-2 px-3 rounded-lg drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
+                  <span className="flex items-center text-white text-xl font-bold p-2"><p className="mr-2">Детальніше</p><IoIosArrowForward size="1em" color="#fff" className="cursor-pointer" /></span>
+                </button>
               </div>
             </div>
           ))}

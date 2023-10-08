@@ -1,5 +1,5 @@
 import { Grid } from "@/components/Grid";
-import {items} from "@/app/config"
+import {subcategories} from "@/app/config"
 import { Card } from "@/components/Card";
 
 export default function Products() {
@@ -9,10 +9,10 @@ export default function Products() {
         <div className="flex flex-col">
         <h1 className="text-3xl md:text-5xl font-bold mb-5 pl-5 pt-5">Продукція</h1>
           <Grid>
-          {items.map((el) => { 
+          {subcategories.map((el) => { 
           return (
             <>
-            <Card key={el.title} title={el.title} img={el.img}/>
+              <Card key={el.name} title={el.name} img={el.img} desc={el.desc} />
             </>
           )
         })}

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { items, services } from "@/app/config";
+import { subcategories, products, services } from "@/app/config";
 import { PiGlobeSimpleBold, PiPhoneCallThin, PiPhoneCallFill } from "react-icons/pi";
 import { ImPhone } from "react-icons/im";
 import { useEffect, useState } from "react";
@@ -44,7 +44,7 @@ const Header = () => {
             <div class="group inline-block relative">
               <button className="inline-flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
                 <PiGlobeSimpleBold size="1.25em" color="#fff" />
-                <p className="pl-1 text-white">UA</p>
+                <p className="pl-1 text-white">Українська</p>
                 <ul class="absolute hidden text-gray-700 top-5 min-w-[150px] right-0 pt-5 group-hover:block">
                   <li class="">
                     <a className="flex bg-white rounded-t-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
@@ -96,28 +96,28 @@ const Header = () => {
                 <li className="p-3 skew-x-12">Головна</li>
               </Link>
               <div class="group inline-block relative">
-                <Link href="/offer/products" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <Link href="/products" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">Продукція</li>
                 </Link>
                 <ul class="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
-                  {items.map((el, idx) => {
+                  {subcategories.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
-                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.title}</a>
+                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</a>
                       </li>
                     );
                   })}
                 </ul>
               </div>
               <div class="group inline-block relative">
-                <Link href="/offer/services" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
+                <Link href="/services" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">Послуги</li>
                 </Link>
                 <ul class="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
                   {services.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
-                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.title}</a>
+                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</a>
                       </li>
                     );
                   })}
@@ -126,10 +126,12 @@ const Header = () => {
               <Link href="/photos" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                 <li className="p-3 skew-x-12">Фото</li>
               </Link>
-              <li className="bg-emerald-600 hidden lg:flex items-center -skew-x-12 py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
+              <Link href="/contacts">
+              <li className="bg-emerald-600 hidden lg:flex items-center max-w-min -skew-x-12 py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
                 <PiPhoneCallFill className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff" />
                 <span className="animate-pulse skew-x-12">Звʼязатися</span>
               </li>
+              </Link>
             </ul>
             <button className="flex bg-emerald-600 drop-shadow-xl py-2 px-3 rounded-lg md:hidden" onClick={() => setMenu(!showMenu)}>
               <h1 className="text-xl font-bold text-white">Меню</h1>
@@ -169,12 +171,12 @@ const Header = () => {
               </Link>
             </li>
             <li className="border-2 border-white rounded-lg">
-              <Link href="/offer/products" className="flex items-center p-2 text-white   hover:bg-stone-100/3 group" onClick={() => setMenu(!showMenu)}>
+              <Link href="/products" className="flex items-center p-2 text-white   hover:bg-stone-100/3 group" onClick={() => setMenu(!showMenu)}>
                 <span className="flex-1 ml-3 whitespace-nowrap">Продукція</span>
               </Link>
             </li>
             <li className="border-2 border-white rounded-lg">
-              <Link href="/offer/services" className="flex items-center p-2 text-white   hover:bg-stone-100/3 group" onClick={() => setMenu(!showMenu)}>
+              <Link href="/services" className="flex items-center p-2 text-white   hover:bg-stone-100/3 group" onClick={() => setMenu(!showMenu)}>
                 <span className="flex-1 ml-3 whitespace-nowrap">Послуги</span>
               </Link>
             </li>

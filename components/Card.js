@@ -1,12 +1,26 @@
+"use client"
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
+import {BiCheck} from "react-icons/bi"
 
-const Card = ({ title, badge, desc, text, price, categories, img }) => {
+const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
+  const router = useRouter();
+  const pathname = usePathname()
+
+  var a = {"Ё":"YO","Й":"I","Ц":"TS","У":"U","К":"K","Е":"E","Н":"N","Г":"G","Ш":"SH","Щ":"SCH","З":"Z","Х":"H","Ъ":"'","ё":"yo","й":"i","ц":"ts","у":"u","к":"k","е":"e","н":"n","г":"g","ш":"sh","щ":"sch","з":"z","х":"h","ъ":"'","Ф":"F","Ы":"I","В":"V","А":"A","П":"P","Р":"R","О":"O","Л":"L","Д":"D","Ж":"ZH","Э":"E","ф":"f","ы":"i","в":"v","а":"a","п":"p","р":"r","о":"o","л":"l","д":"d","ж":"zh","э":"e","Я":"Ya","Ч":"CH","С":"S","М":"M","И":"I","Т":"T","Ь":"'","Б":"B","Ю":"YU","я":"ya","ч":"ch","с":"s","м":"m","и":"i","т":"t","ь":"'","б":"b","ю":"yu"};
+
+function transliterate(word){
+  return word.split('').map(function (char) { 
+    return a[char] || char; 
+  }).join("");
+}
+  
   return (
     <>
-      <div className="relative mx-auto w-full max-w-sm pt-6">
-        <a href="#" className="relative inline-block w-full transform transition-transform duration-300 ease-in-out">
+      <div className="relative mx-auto w-full max-w-sm pt-6 cursor-pointer">
+        <div className="relative inline-block w-full transform transition-transform duration-300 ease-in-out" onClick={() => { source ? router.push(pathname + source) : "" }}>
           <div className="rounded-lg">
             <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
               <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
@@ -16,33 +30,23 @@ const Card = ({ title, badge, desc, text, price, categories, img }) => {
             </div>
 
             <div className="">
-              <div className="mt-4 grid grid-cols-2">
+              <div className="mt-4">
                 <div className="flex items-center">
                   <div className="relative">
-                    {title && <h2 className="line-clamp-1 text-base font-bold text-gray-800 md:text-2xl">{title}</h2>}
-                    {desc && <p className="mt-2 line-clamp-1 text-sm text-gray-800">{desc}</p>}
+                    {title && <h2 className="text-base font-bold text-stone-800 md:text-2xl">{title}</h2>}
+                    {desc && <p className="line-clamp-3 hover:line-clamp-none mt-2 text-md w-full text-stone-400">{desc}</p>}
                   </div>
                 </div>
-                {price && (
-                  <div className="flex items-center justify-end">
-                    <p className="text-primary inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-                      <span className="text-sm uppercase"> $ </span>
-                      <span className="text-lg">{price}</span>/т
-                    </p>
-                  </div>
-                )}
               </div>
               {text && <div className="mt-2 border-t border-gray-200 pt-3">{text}</div>}
 
               {categories && (
-                <div className="mt-2 grid grid-cols-2 grid-rows-2 gap-4 border-b border-t border-gray-200 pb-3 pt-3">
+                <div className="mt-2 grid grid-cols-2 grid-rows-2 gap-4 border-t border-gray-200 pb-3 pt-3">
                   {categories?.map((item, idx) => {
                     return (
                       <>
                         <p key={idx} className="flex items-center text-gray-800 xl:flex-row xl:items-center">
-                          <svg className="mr-3 inline-block h-5 w-5 fill-current text-gray-800 xl:h-4 xl:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path d="M570.53,242,512,190.75V48a16,16,0,0,0-16-16H400a16,16,0,0,0-16,16V78.75L298.53,4a16,16,0,0,0-21.06,0L5.47,242a16,16,0,0,0,21.07,24.09L64,233.27V464a48.05,48.05,0,0,0,48,48H464a48.05,48.05,0,0,0,48-48V233.27l37.46,32.79A16,16,0,0,0,570.53,242ZM480,464a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V205.27l192-168,192,168Zm0-301.25-64-56V64h64ZM208,218.67V325.34A26.75,26.75,0,0,0,234.66,352H341.3A26.76,26.76,0,0,0,368,325.34V218.67A26.75,26.75,0,0,0,341.3,192H234.66A26.74,26.74,0,0,0,208,218.67ZM240,224h96v96H240Z"></path>
-                          </svg>
+                          <BiCheck size="1.5em" className="text-emerald-600"/>
                           <span className="xl:mt-0">{item}</span>
                         </p>
                       </>
@@ -52,7 +56,7 @@ const Card = ({ title, badge, desc, text, price, categories, img }) => {
               )}
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </>
   );

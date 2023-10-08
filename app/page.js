@@ -1,5 +1,5 @@
 "use client";
-import { items, services } from "@/app/config";
+import { subcategories, products, services } from "@/app/config";
 import { Grid } from "@/components/Grid";
 import { Slideshow } from "@/components/Slideshow";
 import { LuWheat } from "react-icons/lu";
@@ -15,16 +15,18 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center bg-stone-100">
         <Slideshow />
         <div className="flex flex-col items-center justify-center w-full border-t-8 border-emerald-600">
-          <h1 className="flex text-3xl md:text-5xl font-black mt-10 md:mt-20">
+          <h1 className="flex text-stone-800 text-3xl md:text-5xl font-black mt-10 md:mt-20">
             <PiPlant size="1em" className="mr-3 text-emerald-600" />
             Продукція
           </h1>
+          <p className="text-stone-600 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Свіжість з поля - завжди першість! Отримайте ексклюзивний доступ до наших натуральних смаків у вашому дому</p>
           <div className="py-5 md:py-10">
             <Grid>
-              {items.map((el) => {
+              {subcategories.map((el) => {
+                const categs = products.filter(elem => elem.subcategory_id == el.name).map(k => k.name);
                 return (
                   <>
-                    <Card key={el.title} title={el.title} img={el.img} />
+                    <Card key={el.name} title={el.name} img={el.img} categories={categs} desc={el.desc} />
                   </>
                 );
               })}
@@ -36,12 +38,13 @@ export default function Home() {
             <MdMiscellaneousServices size="1em" className="mr-3 text-white" />
             Послуги
           </h1>
+          <p className="text-stone-200 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Спеціалізована експертиза для вашого успішного фермерства. Дізнайтеся, як ми можемо підтримати вашу агропродукцію і бізнес.</p>
           <div className="py-5 md:py-10">
             <Grid>
               {services.map((el) => {
                 return (
                   <>
-                    <Card key={el.title} title={el.title} img={el.img} />
+                    <Card key={el.name} title={el.name} desc={el.desc} img={el.img} />
                   </>
                 );
               })}
