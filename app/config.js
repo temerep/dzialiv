@@ -1,15 +1,15 @@
 export const subcategories = [
   {
     category_id: "Продукція",
-    name: "Зернові",
+    name: "Зернові культури",
     img: "/photos/zernovi.webp",
-    desc: "Відкрийте для себе натуральне багатство землі. Наша продукція - це живильні зернові культури, які утворюють основу вашого столу та годують мільйони людей."
+    desc: "Відкрийте для себе натуральне багатство землі. Наша продукція - це живильні Зернові культури культури, які утворюють основу вашого столу та годують мільйони людей."
   },
   {
     category_id: "Продукція", 
-    name: "Технічні",
+    name: "Технічні культури",
     img: "/photos/tehnic.webp",
-    desc: "Перетворіть природні ресурси в інноваційні матеріали. Наші технічні культури створюють нові можливості в промисловості та розвивають виробництво майбутнього."
+    desc: "Перетворіть природні ресурси в інноваційні матеріали. Наші Технічні культури культури створюють нові можливості в промисловості та розвивають виробництво майбутнього."
   },
   {
     category_id: "Продукція", 
@@ -105,56 +105,56 @@ export const products = [
     img: "/photos/tehnic.webp",
     name: "Соняшник",
     desc: "/sonyah",
-    subcategory_id: "Технічні",
+    subcategory_id: "Технічні культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/tehnic.webp",
     name: "Ріпак",
     desc: "/ripak",
-    subcategory_id: "Технічні",
+    subcategory_id: "Технічні культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Гречка",
     desc: "/grechka",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Овес",
     desc: "/oves",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Ячмінь",
     desc: "/yachmin",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Просо",
     desc: "/proso",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Кукурудза",
     desc: "/cucurudza",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Пшениця",
     desc: "/pshenytsia",
-    subcategory_id: "Зернові",
+    subcategory_id: "Зернові культури",
     pricelist: "http://localhost.com"
   }
 ];
