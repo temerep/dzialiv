@@ -109,7 +109,7 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
               <div className="mt-4">
                 <div className="flex items-center">
                   <div className="relative">
-                    {title && <h2 className="text-base font-bold text-stone-800 md:text-2xl">{title}</h2>}
+                    {title && <h2 className="text-base font-bold text-stone-800 md:text-3xl">{title}</h2>}
                     {desc && <p className="line-clamp-3 lg:active:line-clamp-none mt-2 text-md w-full text-stone-400">{desc}</p>}
                   </div>
                 </div>
