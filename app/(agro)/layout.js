@@ -1,7 +1,11 @@
+"use client"
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { subcategories, services, products } from "../config";
 
 export default function ProductLayout({ children }) {
+  const router = useRouter();
+  const pathname = usePathname();
   return (
     <>
       <aside className="hidden sm:block sticky overflow-hidden left-0 top-34 w-96 bg-white border-r border-stone-300">
@@ -30,7 +34,7 @@ export default function ProductLayout({ children }) {
                       .map((itm) => {
                         return (
                           <>
-                            <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href="/offer/item">
+                            <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href={"/products/coco"}>
                               {itm.name}
                             </Link>
                           </>
@@ -43,7 +47,7 @@ export default function ProductLayout({ children }) {
           })}
 
           <button className="text-white bg-emerald-700">
-            <Link href="/offer/services">
+            <Link href="/services">
               <div className="flex items-center justify-between h-12 px-3 text-xl font-bold">
                 <span className="truncate">Послуги</span>
               </div>

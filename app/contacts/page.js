@@ -1,14 +1,17 @@
 "use client"
+import Image from "next/image";
+import {HiMail} from "react-icons/hi"
+import {BsFillTelephoneFill} from "react-icons/bs"
 
 export default function Contacts() {
   return (
     <>
-      <div className="aboslute flex justify-center items-center w-screen h-screen/3 bg-emerald-300">
+      <div className="aboslute flex justify-center items-center w-screen min-h-[70vh] h-screen/3  bg-cover  bg-no-repeat bg-[url('/photos/contacts.jpg')] object-cover">
         <div className="container mx-auto my-4 px-4 lg:px-20">
           <form className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
             <div className="flex">
-              <h1 className="font-bold text-5xl">
-                Звʼяжіться з нами
+              <h1 className="font-bold text-stone-800 text-3xl mb-5">
+              Якщо у вас виникли питання або ви бажаєте зробити замовлення, заповніть форму 
               </h1>
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
@@ -30,31 +33,27 @@ export default function Contacts() {
             </div>
           </form>
 
-          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-5 ml-auto bg-emerald-700 rounded-2xl">
+          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-5 ml-auto  border-4 border-emerald-800 bg-emerald-600 rounded-2xl">
             <div className="flex flex-col text-white">
-              <h1 className="font-bold text-4xl my-4">Де ми знаходимось?</h1>
-              <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt arcu diam, eu feugiat felis fermentum id. Curabitur vitae nibh viverra, auctor turpis sed, scelerisque ex.
-              </p>
-
-              <div className="flex my-4 w-2/3 lg:w-1/2">
+              <div className="flex items-center">
+              <Image src="/logo.webp" width={100} height={100}/>
+              <h1 className="font-bold text-4xl ml-3 my-4">ФГ «Дзялів»</h1>
+              </div>
+              <div className="flex my-4 w-2/3 lg:w-full">
                 <div className="flex flex-col">
-                  <i className="fas fa-map-marker-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">Main Office</h2>
-                  <p className="text-gray-400">5555 Tailwind RD, Pleasant Grove, UT 73533</p>
+                  <h2 className="text-2xl p-2 font-medium">вул. Перемоги, 3</h2>
+                  <p className=" text-lg px-2">с. Камʼяногірна, Вінницької обл.</p>
                 </div>
               </div>
 
-              <div className="flex my-4 w-2/3 lg:w-1/2">
+              <div className="flex my-4 w-2/3 lg:w-full">
                 <div className="flex flex-col">
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-400">Tel: xxx-xxx-xxx</p>
-                  <p className="text-gray-400">Fax: xxx-xxx-xxx</p>
+                  <div className="flex items-center p-2 bg-white w-full rounded-lg cursor-pointer"><HiMail size="1em" className="text-emerald-600 mr-2"/><h2 className="text-xl text-stone-800">dzialiv@gmail.com</h2></div>
+                  <div className="flex items-center p-2 pt-3 w-full"><BsFillTelephoneFill size="1em" className="mr-2"/><p className="text-lg">+38 (099)-999-00-99</p></div>
+                  <div className="flex items-center p-2 w-full"><BsFillTelephoneFill size="1em" className="mr-2"/><p className="text-lg">+38 (099)-999-00-99</p></div>
                 </div>
               </div>
             </div>

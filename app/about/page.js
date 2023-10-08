@@ -23,6 +23,10 @@ export default function About() {
               </div>
               <Image src="/photos/about_1.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
             </div>
+            <div className="flex gap-x-5 mt-5 w-full mb-10 lg:mb-0">
+              <Image src="/photos/about_2.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
+              <Image src="/photos/vagy.jpg" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />
+            </div>
           </div>
         </div>
       </section>

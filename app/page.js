@@ -26,7 +26,7 @@ export default function Home() {
                 const categs = products.filter(elem => elem.subcategory_id == el.name).map(k => k.name);
                 return (
                   <>
-                    <Card key={el.name} title={el.name} img={el.img} categories={categs} desc={el.desc} />
+                    <Card key={el.name} title={el.name} img={el.img} desc={el.desc} />
                   </>
                 );
               })}
@@ -69,25 +69,25 @@ export default function Home() {
           <div className="container px-5 py-24 mx-auto max-w-7xl flex">
             <div className="lg:w-1/2 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative drop-shadow-xl">
               <h2 className="text-gray-900 text-5xl mb-5 font-bold title-font">Контакти</h2>
-              <p className="mb-5 text-md text-gray-600">Ми завжди раді відповісти на ваші запитання. Зв`яжіться з нами за допомогою наступних контактних даних:</p>
+              <p className="mb-5 text-md text-gray-600">Ми завжди раді відповісти на ваші запитання. Звʼяжіться з нами за допомогою наступних контактних даних:</p>
               <h3 className="text-gray-900 font-bold my-2">
                 Адреса:
                 <br />
-                <span className="text-emerald-600">вул. Перемоги 3, с. Камʼяногірка, Вінницька обл.</span>
+                <span className="text-emerald-600">вул. Перемоги 3, <br></br>с. Камʼяногірка, Вінницька обл.</span>
               </h3>
               <h3 className="text-gray-900 font-bold my-2">
                 Телефон:
                 <br />
                 <span className="text-emerald-600">
-                  <a href="tel:+380345353443">+380345353443</a>
+                  <a href="tel:+380345353443">+380000000000</a>
                   <br />
-                  <a href="tel:+380456546456">+380456546456</a>
+                  <a href="tel:+380456546456">+380000000000</a>
                 </span>
               </h3>
               <h3 className="text-gray-900 font-bold my-2">
                 E-mail:
                 <br />
-                <a href="mailto:dzialiv@gmail.com" className="font-medium text-emerald-600">
+                <a href="mailto:dzialiv@gmail.com" className="font-bold text-emerald-600">
                   dzialiv@gmail.com
                 </a>
               </h3>
