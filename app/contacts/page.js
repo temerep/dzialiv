@@ -11,7 +11,7 @@ export default function Contacts() {
           <form className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
             <div className="flex">
               <h1 className="font-bold text-stone-800 text-3xl mb-5">
-              Якщо у вас виникли питання або ви бажаєте зробити замовлення, заповніть форму 
+              Якщо у Вас виникли питання або Ви бажаєте зробити замовлення, заповніть форму 
               </h1>
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
