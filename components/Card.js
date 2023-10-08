@@ -97,7 +97,7 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
             source ? router.push(pathname + source) : "";
           }}
         >
-          <div className="rounded-lg p-5">
+          <div className="rounded-lg p-3 md:p-5">
             <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
               <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
                 <Image fill objectFit="cover" src={img} alt="" />
