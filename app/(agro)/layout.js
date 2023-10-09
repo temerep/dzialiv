@@ -29,11 +29,11 @@ export default function ProductLayout({ children }) {
                   </div>
                   <div className="max-h-0 overflow-hidden duration-300 group-focus:max-h-full">
                     {products
-                      .filter((item) => item.subcategory_id == el.name)
+                      .filter((item) => item.subcategory_id == el.link)
                       .map((itm) => {
                         return (
                           <>
-                            <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href={"/products/coco"}>
+                            <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href={"/products/" + el.link + "/" + itm.link}>
                               {itm.name}
                             </Link>
                           </>
@@ -55,11 +55,13 @@ export default function ProductLayout({ children }) {
           {services.map((el) => {
             return (
               <>
+                <Link href={"/services/" + el.link}>
                 <button className="group border-b border-stone-300 bg-white focus:outline-none">
                   <div className="flex items-center justify-between h-12 px-3 font-semibold hover:bg-stone-200 group-focus:bg-stone-200">
                     <span className="truncate">{el.name}</span>
                   </div>
                 </button>
+                </Link>
               </>
             );
           })}

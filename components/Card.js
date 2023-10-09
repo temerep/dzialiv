@@ -94,7 +94,7 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
         <div
           className="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
           onClick={() => {
-            source ? router.push(pathname + source) : "";
+            source ? router.push(pathname + "/" + source) : "";
           }}
         >
           <div className="rounded-lg p-3 md:p-5">

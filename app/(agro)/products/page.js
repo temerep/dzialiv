@@ -1,8 +1,12 @@
+"use client"
 import { Grid } from "@/components/Grid";
 import {subcategories} from "@/app/config"
 import { Card } from "@/components/Card";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Products() {
+  const pathname = usePathname();
+  const router = useRouter();
   return (
     <>
       <main className="flex flex-col items-center w-full p-5 bg-stone-100">
@@ -12,7 +16,7 @@ export default function Products() {
           {subcategories.map((el) => { 
           return (
             <>
-              <Card key={el.name} title={el.name} img={el.img} desc={el.desc} />
+              <Card key={el.name} source={el.link} title={el.name} img={el.img} desc={el.desc} />
             </>
           )
         })}

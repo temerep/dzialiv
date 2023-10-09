@@ -12,7 +12,7 @@ export default function Services() {
             {services.map((el) => {
               return (
                 <>
-                  <Card key={el.name} title={el.name} desc={el.desc} img={el.img} />
+                  <Card key={el.name} source={el.link} title={el.name} desc={el.desc} img={el.img} />
                 </>
               );
             })}
