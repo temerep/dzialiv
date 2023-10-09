@@ -6,7 +6,7 @@ import {BsFillTelephoneFill} from "react-icons/bs"
 export default function Contacts() {
   return (
     <>
-      <div className="aboslute flex justify-center items-center w-screen min-h-[70vh] h-screen/3  bg-cover  bg-no-repeat bg-[url('/photos/contacts.jpg')] object-cover">
+      <div className="aboslute flex justify-center items-center w-full overflow-hidden overscroll-hidden min-h-[70vh] h-screen/3  bg-cover bg-no-repeat bg-[url('/photos/contacts.jpg')] object-cover">
         <div className="container mx-auto my-4 px-4 lg:px-20">
           <form className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
             <div className="flex">

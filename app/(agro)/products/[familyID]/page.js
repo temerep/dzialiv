@@ -7,9 +7,9 @@ export default function Family({ params }) {
   const family = products.filter((el) => el.subcategory_id == subcat.link);
   return (
     <>
-      <main className="flex flex-col items-center w-full p-5 bg-stone-200">
+      <main className="flex flex-col items-center w-full md:p-5 bg-stone-200">
         <div className="flex flex-col">
-          <h1 className="text-3xl md:text-5xl font-bold mb-5 pl-5 pt-5">{subcat.name}</h1>
+          <h1 className="text-3xl text-stone-800 md:text-5xl font-bold mb-5 pl-5 pt-5">{subcat.name}</h1>
           <Grid>
             {family.map((item) => {
               return (

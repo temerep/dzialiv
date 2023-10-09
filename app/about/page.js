@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function About() {
   return (
-    <div className="flex flex-col w-full overflow-hidden">
+    <div className="flex flex-col w-full overflow-hidden overscroll-hidden">
       <section className="p-5 py-12 min-[1080px]:p-20 bg-stone-100 w-full" id="about">
         <div className="max-w-7xl mx-auto md:px-6">
           <div className="flex flex-wrap ">
@@ -18,7 +18,7 @@ export default function About() {
               </div>
             </div>
             <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
-              <div className="absolute items-center overflow-hidden w-full justify-center -mt-0 -ml-0 md:-mt-5 md:-ml-10">
+              <div className="absolute items-center overflow-hidden justify-center -mt-0 -ml-0 md:-mt-5 md:-ml-10">
                 <Image src="/logo.webp" width={120} height={120} alt="" className="" />
               </div>
               <Image src="/photos/about_1.webp" width={500} height={500} alt="" className="w-full rounded-xl" draggable={false} />

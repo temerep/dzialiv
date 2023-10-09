@@ -94,12 +94,18 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
         <div
           className="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
           onClick={() => {
-            source ? router.push(pathname + "/" + source) : "";
+            if(source){
+              if (pathname == "") {
+                router.push(pathname + "/" + source);
+              } else {
+                router.push("/" + source);
+              }
+            }
           }}
         >
           <div className="rounded-lg p-3 md:p-5">
             <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
-              <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
+              <div className="w-full min-w-[50vw] md:min-w-max transform transition-transform duration-500 ease-in-out hover:scale-110">
                 <Image fill objectFit="cover" src={img} alt="" />
               </div>
               {badge && <span className="absolute left-0 top-0 z-10 ml-3 mt-3 inline-flex select-none rounded-lg bg-red-500 px-3 py-2 text-sm font-medium text-white">Новинка</span>}

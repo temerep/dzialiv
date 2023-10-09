@@ -9,7 +9,7 @@ export default function Products() {
   const router = useRouter();
   return (
     <>
-      <main className="flex flex-col items-center w-full p-5 bg-stone-100">
+      <main className="flex flex-col items-center w-full md:p-5 bg-stone-100">
         <div className="flex flex-col">
         <h1 className="text-3xl text-stone-800 md:text-5xl font-bold mb-5 pl-5 pt-5">Продукція</h1>
           <Grid>

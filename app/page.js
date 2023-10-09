@@ -23,7 +23,6 @@ export default function Home() {
           <div className="py-5 md:py-10">
             <Grid>
               {subcategories.map((el) => {
-                const categs = products.filter(elem => elem.subcategory_id == el.name).map(k => k.name);
                 return (
                   <>
                     <Card key={el.name} source={("products/"+el.link)} title={el.name} img={el.img} desc={el.desc} />
