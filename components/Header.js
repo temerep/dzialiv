@@ -107,7 +107,7 @@ const Header = () => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
                         <Link href={"/products/" + el.link}>
-                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</a>
+                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</span>
                         </Link>
                       </li>
                     );
@@ -123,7 +123,7 @@ const Header = () => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
                         <Link href={"/services/" + el.link}>
-                        <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</a>
+                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</span>
                         </Link>
                       </li>
                     );

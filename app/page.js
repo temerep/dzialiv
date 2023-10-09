@@ -26,7 +26,7 @@ export default function Home() {
                 const categs = products.filter(elem => elem.subcategory_id == el.name).map(k => k.name);
                 return (
                   <>
-                    <Card key={el.name} title={el.name} img={el.img} desc={el.desc} />
+                    <Card key={el.name} source={("products/"+el.link)} title={el.name} img={el.img} desc={el.desc} />
                   </>
                 );
               })}
@@ -44,7 +44,7 @@ export default function Home() {
               {services.map((el) => {
                 return (
                   <>
-                    <Card key={el.name} title={el.name} desc={el.desc} img={el.img} />
+                    <Card key={el.name} source={("services/"+el.link)} title={el.name} desc={el.desc} img={el.img} />
                   </>
                 );
               })}
