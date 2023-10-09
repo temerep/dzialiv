@@ -6,14 +6,15 @@ import { services } from "@/app/config";
 import { BiSolidDownload } from "react-icons/bi";
 
 export default function ServicesItem({ params }) {
+  const item = services.find(el => el.link == params.serviceID);
   return (
     <>
       <main className="flex min-h-[80vh] flex-col w-full p-5 bg-white">
-        <Breadcrumbs omitRootLabel />
+        <Breadcrumbs />
         <div className="flex flex-col h-full lg:flex-row space-x-5 p-5 bg-stone-100 rounded-lg">
-          <Image src="/photos/pererobka.webp" className="rounded-lg object-cover" width={600} height={1000} alt="" />
+          <Image src={item.img} className="rounded-lg object-cover" width={600} height={1000} alt="" />
           <div className="flex flex-col">
-            <h1 className="text-3xl mt-5 lg:mt-0 lg:text-5xl font-bold mb-5">Пелети соломʼяні</h1>
+            <h1 className="text-3xl mt-5 lg:mt-0 lg:text-5xl font-bold mb-5">{item.name}</h1>
             <p className="text-lg">
             Гранули є 100% рослинного походження, оскільки виготовляються із соломи різних рослин без хімічних домішок і добавок.
             <br></br><br></br>
