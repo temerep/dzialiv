@@ -96,9 +96,9 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
           onClick={() => {
             if(source){
               if (pathname == "") {
-                router.push(pathname + "/" + source);
-              } else {
                 router.push("/" + source);
+              } else {
+                router.push(pathname + "/" + source);
               }
             }
           }}
