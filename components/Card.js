@@ -4,7 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiCircleMore } from "react-icons/ci";
-import { FaDollarSign } from "react-icons/fa";
+import { AiOutlineRight } from "react-icons/ai";
 
 const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
   const router = useRouter();
@@ -93,15 +93,6 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
       <div className="relative mx-auto w-full max-w-sm cursor-pointer bg-stone-200">
         <div
           className="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
-          onClick={() => {
-            if(source){
-              if (pathname == "") {
-                router.push("/" + source);
-              } else {
-                router.push(pathname + "/" + source);
-              }
-            }
-          }}
         >
           <div className="rounded-lg p-3 md:p-5">
             <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
@@ -122,14 +113,21 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
               </div>
               {text && <div className="mt-2 border-t border-gray-200 pt-3">{text}</div>}
 
-              <div className="mt-2 grid grid-cols-1 lg:grid-cols-2 gap-4 border-t border-gray-200 pb-3 pt-3">
-                <p className="flex items-center text-stone-800 xl:flex-row xl:items-center">
-                  <CiCircleMore size="1.5em" className=" mr-2" />
-                  <span className="xl:mt-0">Детальніше</span>
-                </p>
-                <button className="inline-flex items-center justify-center uppercase text-sm font-bold bg-emerald-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline">
-                  <span>Прайс лист</span>
-                  <FaDollarSign size="1em" className="text-white pl-1"/>
+              <div className="mt-2 border-t border-gray-200 pb-3 pt-3">
+                <button
+                  className="inline-flex items-center justify-center uppercase text-sm font-bold bg-emerald-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  onClick={() => {
+                    if(source){
+                      if (pathname == "/") {
+                        router.push("/" + source);
+                      } else {
+                        router.push(pathname + "/" + source);
+                      }
+                    }
+                  }}
+                >
+                  <span>Детальніше</span>
+                  <AiOutlineRight size="1em" className="text-white pl-1"/>
                 </button>
               </div>
             </div>
