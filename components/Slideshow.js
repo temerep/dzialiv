@@ -32,9 +32,9 @@ const Slideshow = () => {
               <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
               <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
               <div className="flex flex-col space-y-4 p-12 sm:p-24 md:p-48 ">
-                <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.title}</h1>
+                <h1 className="z-10 md:text-6xl text-3xl font-black text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.name}</h1>
                 <p className="z-10 md:text-2xl text-xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{each.desc}</p>
-                <Link href={each.src}>
+                <Link href={each.link}>
                 <button className="bg-emerald-600 max-w-min inline-flex items-center py-2 px-3 border-2 -skew-x-12 border-emerald-500 rounded-lg drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
                   <span className="flex items-center text-white text-lg font-bold px-2 py-1.5 skew-x-12">
                     <p className="mr-2">Детальніше</p>

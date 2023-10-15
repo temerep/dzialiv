@@ -57,7 +57,7 @@ const Login = observer(() => {
           <p className="hidden text-red-700 text-xs italic">Будь ласка, введіть пароль.</p>
         </div>
         <div className="m-auto items-center justify-сenter">
-          <button className='p-5 bg-emerald-600' value="Вхід" onClick={signIn}>Вхід</button>
+          <button className='bg-emerald-600 max-w-min inline-flex items-center py-2 px-3 border-2 text-white border-emerald-500 rounded-lg drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none' value="Вхід" onClick={signIn}>Вхід</button>
         </div>
       </form>
     </div>

@@ -15,7 +15,6 @@ export default function Contacts() {
   const { values } = state;
 
   const handleChange = ({ target }) => {
-    console.log(target.name, target.value)
     setState((prev) => ({
       ...prev,
       values: {
