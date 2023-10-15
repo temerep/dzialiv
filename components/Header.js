@@ -44,37 +44,37 @@ const Header = () => {
               </li>
               </a>
             </ul>
-            <div class="group inline-block relative">
+            <div className="group inline-block relative">
               <button className="inline-flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
                 <PiGlobeSimpleBold size="1.25em" color="#fff" />
                 <p className="pl-1 text-white">Українська</p>
-                <ul class="absolute hidden text-gray-700 top-5 min-w-[150px] right-0 pt-5 group-hover:block">
-                  <li class="">
+                <ul className="absolute hidden text-gray-700 top-5 min-w-[150px] right-0 pt-5 group-hover:block">
+                  <li className="">
                     <a className="flex bg-white rounded-t-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇬🇧 English
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇺🇦 Українська
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇵🇱 Polska
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇩🇪 Deutsch
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇱🇹 Lietuvių
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a className="flex bg-white rounded-b-md px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                       🇷🇴 Românesc
                     </a>
@@ -98,11 +98,11 @@ const Header = () => {
               <Link href="/" className="md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                 <li className="p-3 skew-x-12">Головна</li>
               </Link>
-              <div class="group inline-block relative">
+              <div className="group inline-block relative">
                 <Link href="/products" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">Продукція</li>
                 </Link>
-                <ul class="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
+                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
                   {subcategories.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
@@ -114,11 +114,11 @@ const Header = () => {
                   })}
                 </ul>
               </div>
-              <div class="group inline-block relative">
+              <div className="group inline-block relative">
                 <Link href="/services" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">Послуги</li>
                 </Link>
-                <ul class="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
+                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
                   {services.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>

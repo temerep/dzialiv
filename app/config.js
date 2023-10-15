@@ -49,88 +49,77 @@ export const products = [
     name: "Пелети соломʼяні",
     desc: `dfgfdg`,
     link: "pelety",
-    subcategory_id: "pererobka",
-    pricelist: "http://localhost.com"
+    subcategory_id: "pererobka"
   },
   {
     img: "/photos/frukty.webp",
     name: "Яблука",
     desc: "/yabluka",
     link: "yabluka",
-    subcategory_id: "frukty",
-    pricelist: "http://localhost.com"
+    subcategory_id: "frukty"
   },
   {
     img: "/photos/ovochi.webp",
     name: "Буряк",
     desc: "/buryak",
     link: "buryak",
-    subcategory_id: "ovochi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "ovochi"
   },
   {
     img: "/photos/ovochi.webp",
     name: "Цибуля ріпчата",
     desc: "/tsybulia",
     link: "tsybulia",
-    subcategory_id: "ovochi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "ovochi"
   },
   {
     img: "/photos/boby.webp",
     name: "Соя",
     desc: "/soya",
     link: "soya",
-    subcategory_id: "bobovy",
-    pricelist: "http://localhost.com"
+    subcategory_id: "bobovy"
   },
   {
     img: "/photos/tehnic.webp",
     name: "Соняшник",
     desc: "/sonyah",
     link: "sonyah",
-    subcategory_id: "tehnic",
-    pricelist: "http://localhost.com"
+    subcategory_id: "tehnic"
   },
   {
     img: "/photos/tehnic.webp",
     name: "Ріпак",
     desc: "/ripak",
     link: "ripak",
-    subcategory_id: "tehnic",
-    pricelist: "http://localhost.com"
+    subcategory_id: "tehnic"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Гречка",
     desc: "/grechka",
     link: "grechka",
-    subcategory_id: "zernovi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "zernovi"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Просо",
     desc: "/proso",
     link: "proso",
-    subcategory_id: "zernovi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "zernovi"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Кукурудза",
     desc: "/cucurudza",
     link: "cucurudza",
-    subcategory_id: "zernovi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "zernovi"
   },
   {
     img: "/photos/zernovi.webp",
     name: "Пшениця",
     desc: "/pshenytsia",
     link: "pshenytsia",
-    subcategory_id: "zernovi",
-    pricelist: "http://localhost.com"
+    subcategory_id: "zernovi"
   }
 ];
 
@@ -140,24 +129,21 @@ export const services = [
     name: "Очищення/cушіння зерна",
     desc: "Максимальна якість вашого зерна! Наші професійні послуги покращують вашу врожайність в рази.",
     link: "sushka",
-    category_id: "services",
-    pricelist: "http://localhost.com"
+    category_id: "services"
   },
   {
     img: "/photos/navantag.jpg",
     name: "Телескопічний навантажувач",
     desc: "Підвищте продуктивність зручним і надійним навантажувачем. Деталі і можливості нашої техніки.",
     link: "navantag",
-    category_id: "services",
-    pricelist: "http://localhost.com"
+    category_id: "services"
   },
   {
     img: "/photos/vagy.jpg",
     name: "Зважування (до 80т.)",
     desc: "Точне і надійне зважування для великих завантажень. Ми забезпечуємо ефективну логістику для вас.",
     link: "vagy",
-    category_id: "services",
-    pricelist: "http://localhost.com"
+    category_id: "services"
   }
 ];
 

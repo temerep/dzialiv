@@ -1,9 +1,8 @@
 import "./globals.css";
-// import { Suspense } from 'react'
-// import { Loading } from '@/components/Loading'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import {Provider} from "@/app/provider";
 
 
 const exo = localFont({
@@ -41,16 +40,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html className="scroll-smooth" lang="ua">
-      <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
-        <div className="flex w-full flex-col">
-        <Header />
-        {/* <Suspense fallback={<Loading/>}> */}
-        <main className="flex w-full ">{children}</main>
-        {/* </Suspense> */}
-        <Footer />
-        </div>
-      </body>
-    </html>
+    <Provider>
+      <html className="scroll-smooth" lang="ua">
+        <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
+          <div className="flex w-full flex-col">
+            <Header />
+            {/* <Suspense fallback={<Loading/>}> */}
+            <main className="flex w-full ">{children}</main>
+            {/* </Suspense> */}
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </Provider>
   );
 }
