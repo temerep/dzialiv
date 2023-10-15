@@ -134,7 +134,7 @@ const Header = () => {
                 <li className="p-3 skew-x-12">Фото</li>
               </Link>
               <Link href="/contacts">
-              <li className="bg-emerald-600 hidden lg:flex items-center max-w-min -skew-x-12 py-2 px-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
+              <li className="bg-emerald-600 hidden lg:flex items-center max-w-min -skew-x-12 p-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
                 <HiMail className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff" />
                 <span className="animate-pulse skew-x-12">Звʼязатися</span>
               </li>
