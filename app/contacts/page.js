@@ -7,7 +7,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { host } from '@/http';
 
 export default function Contacts() {
-  const initValues = { name: "", email: "", phone: "", message: "" }; // Added phone field
+  const initValues = { name: "", email: "", phone: "", message: "" };
   const initState = { values: initValues };
   
   const [state, setState] = useState(initState);
