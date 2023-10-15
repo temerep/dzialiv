@@ -37,7 +37,6 @@ export default function Contacts() {
   const sendContactForm = async (data) => {
     try {
       const response = await host.post("api/send-mail", data);
-
       if (response.status === 200) {
         console.log("Message sent successfully");
       } else {
