@@ -48,9 +48,7 @@ export default function ProductItem({ params }) {
           <div className="flex flex-col">
             <h1 className="text-3xl mt-5 lg:mt-0 lg:text-5xl font-bold mb-5">{item?.name}</h1>
             <p className="text-lg" style={{ whiteSpace: "pre-line", tabSize: 4 }}>
-
              {item?.desc}
-
             </p>
           </div>
         </div>

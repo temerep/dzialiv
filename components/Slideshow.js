@@ -1,12 +1,25 @@
+"use client"
+import { useEffect, useState } from "react";
+import { host } from "@/http";
 import { Zoom } from "react-slideshow-image";
 import Link from "next/link";
-import { slideshow } from "@/app/config";
 import "react-slideshow-image/dist/styles.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs"
 import Image from "next/image";
 
 const Slideshow = () => {
+  const [slider, setSlider] = useState(null);
+
+  useEffect(() => {
+    host
+      .get("api/slider")
+      .then((response) => {
+        setSlider(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
   const zoomInProperties = {
     scale: 1,
     duration: 3000,
@@ -27,7 +40,7 @@ const Slideshow = () => {
     <>
       <div className="w-full h-full">
         <Zoom {...zoomInProperties}>
-          {slideshow.map((each, index) => (
+          {slider?.map((each, index) => (
             <div key={index} className="flex justify-center md:justify-start items-center w-screen h-[50vh] sm:h-[70vh] relative">
               <Image fill objectFit="cover" src={each.img} loading="lazy" alt="" />
               <div className="absolute w-full h-[50vh] sm:h-[70vh] bg-[linear-gradient(180deg,rgba(40,40,40,0.3)_0%,rgba(40,40,40,0.5)_50%,rgba(40,40,40,0.6)_100%)]"></div>
