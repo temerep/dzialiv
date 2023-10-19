@@ -47,8 +47,10 @@ export default function ProductItem({ params }) {
           <Image src={item?.img} className="rounded-lg object-cover" width={600} height={1000} alt="" />
           <div className="flex flex-col">
             <h1 className="text-3xl mt-5 lg:mt-0 lg:text-5xl font-bold mb-5">{item?.name}</h1>
-            <p className="text-lg">
+            <p className="text-lg" style={{ whiteSpace: "pre-line", tabSize: 4 }}>
+
              {item?.desc}
+
             </p>
           </div>
         </div>
