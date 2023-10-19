@@ -1,11 +1,53 @@
 "use client";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { authHost, host } from "@/http/index";
 import { useRouter, usePathname } from "next/navigation";
-import { subcategories, services, products } from "../config";
 
 export default function ProductLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
+
+  const [products, setProducts] = useState(null);
+  const [services, setServices] = useState(null);
+  const [slider, setSlider] = useState(null);
+  const [subcategories, setSubcategories] = useState(null);
+
+  useEffect(() => {
+    host
+      .get("api/product")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/services")
+      .then((response) => {
+        setServices(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/slider")
+      .then((response) => {
+        setSlider(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/subcategory")
+      .then((response) => {
+        setSubcategories(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
   return (
     <>
       <aside className="hidden sm:block sticky overflow-hidden left-0 top-34 w-96 bg-white border-r border-stone-300">
@@ -17,7 +59,8 @@ export default function ProductLayout({ children }) {
               </div>
             </Link>
           </button>
-          {subcategories.map((el) => {
+          {subcategories &&
+            subcategories.map((el) => {
             return (
               <>
                 <button className="group border-b border-stone-300 bg-white focus:outline-none">
@@ -30,7 +73,8 @@ export default function ProductLayout({ children }) {
                     </svg>
                   </div>
                   <div className="max-h-0 overflow-hidden duration-300 group-focus:max-h-full">
-                    {products
+                    {products &&
+                    products
                       .filter((item) => item.subcategory_id == el.link)
                       .map((itm) => {
                         return (
@@ -54,12 +98,13 @@ export default function ProductLayout({ children }) {
               </div>
             </Link>
           </button>
-          {services.map((el) => {
+          {services &&
+          services.map((el) => {
             return (
               <>
                 <Link href={"/services/" + el.link}>
-                <button className="group border-b border-stone-300 bg-white focus:outline-none">
-                  <div className="flex items-center justify-between h-12 px-3 font-semibold hover:bg-stone-200 group-focus:bg-stone-200">
+                <button className="group border-b w-full border-stone-300 bg-white focus:outline-none">
+                  <div className="flex items-center h-12 px-3 font-semibold hover:bg-stone-200 group-focus:bg-stone-200">
                     <span className="truncate">{el.name}</span>
                   </div>
                 </button>

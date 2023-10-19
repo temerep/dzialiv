@@ -10,84 +10,6 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  var a = {
-    Ё: "YO",
-    Й: "I",
-    Ц: "TS",
-    У: "U",
-    К: "K",
-    Е: "E",
-    Н: "N",
-    Г: "G",
-    Ш: "SH",
-    Щ: "SCH",
-    З: "Z",
-    Х: "H",
-    Ъ: "'",
-    ё: "yo",
-    й: "i",
-    ц: "ts",
-    у: "u",
-    к: "k",
-    е: "e",
-    н: "n",
-    г: "g",
-    ш: "sh",
-    щ: "sch",
-    з: "z",
-    х: "h",
-    ъ: "'",
-    Ф: "F",
-    Ы: "I",
-    В: "V",
-    А: "A",
-    П: "P",
-    Р: "R",
-    О: "O",
-    Л: "L",
-    Д: "D",
-    Ж: "ZH",
-    Э: "E",
-    ф: "f",
-    ы: "i",
-    в: "v",
-    а: "a",
-    п: "p",
-    р: "r",
-    о: "o",
-    л: "l",
-    д: "d",
-    ж: "zh",
-    э: "e",
-    Я: "Ya",
-    Ч: "CH",
-    С: "S",
-    М: "M",
-    И: "I",
-    Т: "T",
-    Ь: "'",
-    Б: "B",
-    Ю: "YU",
-    я: "ya",
-    ч: "ch",
-    с: "s",
-    м: "m",
-    и: "i",
-    т: "t",
-    ь: "'",
-    б: "b",
-    ю: "yu",
-  };
-
-  function transliterate(word) {
-    return word
-      .split("")
-      .map(function (char) {
-        return a[char] || char;
-      })
-      .join("");
-  }
-
   return (
     <>
       <div className="relative mx-auto w-full max-w-sm cursor-pointer bg-stone-200">
@@ -107,7 +29,7 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
                 <div className="flex items-center">
                   <div className="relative">
                     {title && <h2 className="text-base font-bold text-stone-800 md:text-3xl">{title}</h2>}
-                    {desc && <p className="line-clamp-3 lg:active:line-clamp-none mt-2 text-md w-full text-stone-400">{desc}</p>}
+                    {desc && <p className="line-clamp-3 mt-2 text-md w-full text-stone-400">{desc}</p>}
                   </div>
                 </div>
               </div>

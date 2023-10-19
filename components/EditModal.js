@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { authHost } from "../http";
+import { authHost } from "@/http";
+import { Button } from '@nextui-org/react';
 
-const EditModal = ({ data, visible, onHide, update }) => {
+const EditModal = ({ data, visible, onHide, update, status, sub }) => {
   const [file, setFile] = useState(data?.img);
   const [newFile, setNewFile] = useState(null);
   const [name, setName] = useState(data?.name);
   const [desc, setDesc] = useState(data?.desc);
-  const [category_id, setCategory] = useState(data?.category_id);
+  const [category_id, setCategory] = useState(data?.category_id || "products");
   const [subcategory_id, setSubcategory] = useState(data?.subcategory_id);
   const [link, setLink] = useState(data?.link);
 
@@ -22,6 +23,7 @@ const EditModal = ({ data, visible, onHide, update }) => {
     setFile(data?.img);
     setName(data?.name);
     setDesc(data?.desc);
+    setCategory(data?.category_id || "products");
     setSubcategory(data?.subcategory_id);
     setLink(data?.link);
   }, [data]);
@@ -55,7 +57,101 @@ const EditModal = ({ data, visible, onHide, update }) => {
       .then((response) => {
         setTimeout(() => {window.location.reload()}, 500)
       })
+      .catch((e) => console.log(e));
+  };
+
+  const handleUpdateService = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("link", link);
+
+    authHost
+      .patch(`api/services/${data._id}`, formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
       .catch((e) => console.log(e.response.data.message));
+  };
+
+  const handleAddService = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("link", link);
+    formData.append("category_id", category_id);
+    
+
+    authHost
+      .post("api/services", formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
+      .catch((e) => console.log(e.response.data.message));
+  };
+
+  const handleUpdateSlider = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("link", link);
+
+    authHost
+      .patch(`api/slider/${data._id}`, formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
+      .catch((e) => console.log(e.response.data.message));
+  };
+
+  const handleAddSlider = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("link", link);
+
+    authHost
+      .post("api/slider", formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const handleUpdateSubcategory = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("category_id", category_id);
+    formData.append("link", link);
+
+    authHost
+      .patch(`api/subcategory/${data._id}`, formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
+      .catch((e) => console.log(e.response.data.message));
+  };
+
+  const handleAddSubcategory = () => {
+    const formData = new FormData();
+    formData.append("img", newFile);
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("category_id", category_id);
+    formData.append("link", link);
+
+    authHost
+      .post("api/subcategory", formData)
+      .then((response) => {
+        setTimeout(() => {window.location.reload()}, 500)
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -86,7 +182,19 @@ const EditModal = ({ data, visible, onHide, update }) => {
 
             <div className="flex flex-col px-2 md:px-14 py-2 items-center">
               <div className="">
-                <label className="block mb-2 text-sm font-medium text-white" htmlFor="food_photo">
+                <label htmlFor="category" className={(status !== "slider" ? "block" : "hidden") + " mt-2 mb-2 text-sm font-medium text-white"}>
+                  Категорія:
+                </label>
+                <select
+                  id="category_id"
+                  className={(status !== "slider" ? "block" : "hidden") + " bg-neutral-100 text-neutral-900 text-sm rounded-lg w-full p-2.5 placeholder-neutral-400"}
+                  onChange={(e) => setCategory(e.target.value)}
+                  value={category_id}
+                >
+                  <option value="products">Продукція</option>
+                  <option value="services">Послуги</option>
+                </select>
+                <label className="block mt-2 mb-2 text-sm font-medium text-white" htmlFor="food_photo">
                   Фото:
                 </label>
                 <div className="flex flex-row items-center text-center text-neutral-400">
@@ -123,46 +231,45 @@ const EditModal = ({ data, visible, onHide, update }) => {
                   id="desc"
                   rows="3"
                   className="block p-2.5 w-full text-sm text-neutral-900 rounded-lg bg-neutral-100 placeholder-neutral-400"
-                  placeholder="Рис, норі ..."
+                  placeholder="..."
                   value={desc}
                   onChange={(e) => setDesc(e.target.value)}
                 ></textarea>
-                <label htmlFor="weight" className="block mb-2 mt-2 text-sm font-medium text-white">
+                <label htmlFor="subcategory" className={(category_id !== "products" || status === "slider" || status === "subcategory" ? "hidden" : "block") +  " mt-2 mb-2 text-sm font-medium text-white"}>
                   Cуб-категорія:
                 </label>
-                <input
-                  type="text"
+                <select
                   id="subcategory_id"
-                  className="bg-neutral-50 text-neutral-900 text-sm rounded-lg block w-full p-2.5 placeholder-neutral-400"
-                  placeholder="100"
-                  value={subcategory_id}
+                  className={(category_id !== "products" || status === "slider" || status === "subcategory" ? "hidden" : "block") + "  bg-neutral-100 text-neutral-900 text-sm rounded-lg w-full p-2.5 placeholder-neutral-400"}
                   onChange={(e) => setSubcategory(e.target.value)}
-                />
+                  value={subcategory_id}
+                >
+                  {
+                    sub?.map(item => { 
+                      return (
+                        <option key={item.link} value={item.link}>{item.name}</option>
+                      )
+                    })
+                  }
+                </select>
                 <label htmlFor="price" className="block mb-2 mt-2 text-sm font-medium text-white">
-                  Посилання:
+                  Шлях:
                 </label>
                 <input
                   type="text"
                   id="link"
                   className="bg-neutral-50 text-neutral-900 text-sm rounded-lg block w-full p-2.5 placeholder-neutral-400"
-                  placeholder="250"
+                  placeholder="zernovi"
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
                 />
-                <label htmlFor="category" className="block mt-2 mb-2 text-sm font-medium text-white">
-                  Категорія:
-                </label>
-                <select
-                  id="category_id"
-                  className="bg-neutral-100 text-neutral-900 text-sm rounded-lg block w-full p-2.5 placeholder-neutral-400"
-                  onChange={(e) => setCategory(e.target.value)}
-                  value={category_id}
-                >
-                  <option value="product">Продукція</option>
-                  <option value="service">Послуги</option>
-                </select>
                 <div className="flex items-center justify-center mt-10 md:mt-5">
-                  <button onClick={update ? handleUpdateProduct : handleAddProduct }>{update ? "Оновити" : "Додати"}</button>
+                  <Button
+                    className="bg-emerald-600 max-w-min inline-flex items-center py-2 px-3 border-2 text-white border-emerald-500 rounded-lg drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none"
+                    onClick={(status === "subcategory") ? handleAddSubcategory : (status === "slider") ? handleAddSlider : (category_id === "services") ? handleAddService : handleAddProduct}
+                  >
+                    { update ? "Оновити" : "Додати" }
+                  </Button>
                 </div>
               </div>
             </div>

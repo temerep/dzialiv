@@ -1,14 +1,45 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { subcategories, products, services } from "@/app/config";
 import { PiGlobeSimpleBold, PiPhoneCallThin, PiPhoneCallFill } from "react-icons/pi";
 import { ImPhone } from "react-icons/im";
 import { HiMail } from "react-icons/hi";
 import { useEffect, useState } from "react";
+import { host } from "@/http";
+import {Tooltip} from "@nextui-org/react";
 
 const Header = () => {
+  const [products, setProducts] = useState(null);
+  const [services, setServices] = useState(null);
+  const [subcategories, setSubcategories] = useState(null);
   const [showMenu, setMenu] = useState(false);
+
+  useEffect(() => {
+    host
+      .get("api/product")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/services")
+      .then((response) => {
+        setServices(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/subcategory")
+      .then((response) => {
+        setSubcategories(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
 
   useEffect(() => {
     const mobile = document.querySelector("#mobile-menu");
@@ -37,12 +68,12 @@ const Header = () => {
               <Link href="/contacts">
                 <li className="decoration-2 hover:underline decoration-emerald-600 cursor-pointer">Контактна інформація</li>
               </Link>
-              <a href="mailto:dzyaliv@ukr.net">
-              <li className="flex items-center decoration-2 hover:underline decoration-emerald-600 cursor-pointer">
+              <Tooltip showArrow={true} placement="right" color="success" content="Копіювати">
+              <li className="flex items-center decoration-2 hover:underline decoration-emerald-600 cursor-pointer" onClick={() => navigator.clipboard.writeText("dzyaliv@ukr.net")}>
                 <HiMail size="1.25em" color="#fff" className="mr-2" />
                 dzyaliv@ukr.net
-              </li>
-              </a>
+                </li>
+              </Tooltip>
             </ul>
             <div className="group inline-block relative">
               <button className="inline-flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
@@ -103,10 +134,10 @@ const Header = () => {
                   <li className="p-3 skew-x-12">Продукція</li>
                 </Link>
                 <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
-                  {subcategories.map((el, idx) => {
+                  {subcategories?.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
-                        <Link href={"/products/" + el.link}>
+                        <Link href={"/" + el.category_id + "/" + el.link}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</span>
                         </Link>
                       </li>
@@ -119,10 +150,10 @@ const Header = () => {
                   <li className="p-3 skew-x-12">Послуги</li>
                 </Link>
                 <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
-                  {services.map((el, idx) => {
+                  {services?.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
-                        <Link href={"/services/" + el.link}>
+                        <Link href={el.category_id + "/" + el.link}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{el.name}</span>
                         </Link>
                       </li>

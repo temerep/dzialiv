@@ -5,6 +5,7 @@ import InputMask from "react-input-mask";
 import { HiMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { host } from '@/http';
+import { Button } from '@nextui-org/react';
 
 export default function Contacts() {
   const initValues = { name: "", email: "", phone: "", message: "" };
@@ -12,7 +13,7 @@ export default function Contacts() {
   
   const [state, setState] = useState(initState);
 
-  const { values } = state;
+  const { values, isLoading } = state;
 
   const handleChange = ({ target }) => {
     setState((prev) => ({
@@ -25,6 +26,10 @@ export default function Contacts() {
   };
 
   const onSubmit = async () => {
+    setState((prev) => ({
+      ...prev,
+      isLoading: true
+    }))
     try {
       await sendContactForm(values);
       setState(initState);
@@ -73,15 +78,38 @@ export default function Contacts() {
               <textarea placeholder="Ваше повідомлення" name="message" value={values.message} onChange={handleChange} className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" ></textarea>
             </div>
             <div className="my-2 w-1/2 lg:w-1/4">
-              <button
-                className="uppercase text-sm font-bold tracking-wide bg-emerald-600 text-white p-3 rounded-lg max-w-min focus:outline-none focus:shadow-outline"
+              <Button
+                className="uppercase text-sm font-bold disabled:cursor-not-allowed disabled:bg-stone-300 tracking-wide bg-emerald-600 text-white p-3 rounded-lg max-w-min focus:outline-none focus:shadow-outline"
                 disabled={
                   !values.name || !values.email || !values.message
+                }
+                isLoading={isLoading}
+                spinner={
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-current"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 }
                 onClick={onSubmit}
               >
                 Відправити
-              </button>
+              </Button>
             </div>
           </div>
 

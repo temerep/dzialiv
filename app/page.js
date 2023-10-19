@@ -1,5 +1,5 @@
 "use client";
-import { subcategories, products, services } from "@/app/config";
+import React, { useEffect, useState } from 'react';
 import { Grid } from "@/components/Grid";
 import { Slideshow } from "@/components/Slideshow";
 import { LuWheat } from "react-icons/lu";
@@ -8,8 +8,48 @@ import { MdMiscellaneousServices } from "react-icons/md";
 import { GiTomato } from "react-icons/gi";
 import Image from "next/image";
 import { Card } from "@/components/Card";
+import { host } from '@/http';
 
 export default function Home() {
+
+  const [services, setServices] = useState(null);
+  const [subcategories, setSubcategories] = useState(null);
+
+  useEffect(() => {
+    host
+      .get("api/product")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/services")
+      .then((response) => {
+        setServices(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/slider")
+      .then((response) => {
+        setSlider(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/subcategory")
+      .then((response) => {
+        setSubcategories(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
   return (
     <>
       <main className="flex min-h-screen w-full flex-col items-center bg-stone-100">
@@ -22,11 +62,10 @@ export default function Home() {
           <p className="text-stone-600 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Свіжість з поля - завжди першість! Отримайте ексклюзивний доступ до наших натуральних смаків у вашому дому</p>
           <div className="py-5 md:py-10">
             <Grid>
-              {subcategories.map((el) => {
+              {subcategories &&
+                subcategories.map((el) => {
                 return (
-                  <>
-                    <Card key={el.name} source={("products/"+el.link)} title={el.name} img={el.img} desc={el.desc} />
-                  </>
+                    <Card key={el.name} source={el.category_id+"/"+el.link} title={el.name} img={el.img} desc={el.desc} />
                 );
               })}
             </Grid>
@@ -40,11 +79,10 @@ export default function Home() {
           <p className="text-stone-200 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Спеціалізована експертиза для вашого успішного фермерства. Дізнайтеся, як ми можемо підтримати вашу агропродукцію і бізнес.</p>
           <div className="py-5 md:py-10">
             <Grid>
-              {services.map((el) => {
+              {services &&
+                services.map((el) => {
                 return (
-                  <>
-                    <Card key={el.name} source={("services/"+el.link)} title={el.name} desc={el.desc} img={el.img} />
-                  </>
+                  <Card key={el.name} source={el.category_id+"/"+el.link} title={el.name} img={el.img} desc={el.desc} />
                 );
               })}
             </Grid>

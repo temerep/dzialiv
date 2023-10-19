@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
+import { host } from "@/http";
 import Link from "next/link"
-import { products, services, subcategories} from "@/app/config"
 import { usePathname } from "next/navigation"
 
 const Breadcrumbs = ({
@@ -23,15 +23,45 @@ const Breadcrumbs = ({
 }) => {
   const router = usePathname()
   const [breadcrumbs, setBreadcrumbs] = useState(null)
+  const [products, setProducts] = useState(null);
+  const [services, setServices] = useState(null);
+  const [subcategories, setSubcategories] = useState(null);
 
   useEffect(() => {
-    const allMenu = products.concat(services).concat(subcategories);
+    host
+      .get("api/product")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/services")
+      .then((response) => {
+        setServices(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    host
+      .get("api/subcategory")
+      .then((response) => {
+        setSubcategories(response.data);
+      })
+      .catch((e) => console.log(e.response.data.message));
+  }, []);
+
+  useEffect(() => {
+    const allMenu = products?.concat(services)?.concat(subcategories);
     if (router) {
       const linkPath = router.split("/")
       linkPath.shift()
 
       const pathArray = linkPath.map((path, i) => {
-        let item = allMenu.find(el => el.link == path);
+        let item = allMenu?.find(el => el.link == path);
         (item ? item = item.name : "");
         return {
           breadcrumb: item,
