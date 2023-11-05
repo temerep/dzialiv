@@ -1,29 +1,28 @@
-"use client"
-import React from "react";
-import Image from "next/image";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image"
 import { BeatLoader } from 'react-spinners';
 
-export default function Loader() {
+const Loader = () => {
   return (
     <div className="h-full z-50">
-     <LazyLoadImage
-        src="../public/logo.webp"
-        alt="logo"
-        style={{
-          width: "200px",
-          position: "absolute",
-          top: "45%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 50,
-        }}
+      <Image
+      src="/logo.webp"
+      width={100}
+      height={100}
+      alt=""
+      style={{
+        position: "absolute",
+        top: "45%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 50,
+      }}
       />
       <BeatLoader
         color="#36d7b7"
         loading={true}
-        cssOverride={{ position: "absolute", left: "50%", top: "55%" }}
+        cssOverride={{ position: "absolute", left: "50%", top: "55%", transform: "translate(-50%, -50%)"}}
       />
     </div>
   );
 }
+export { Loader };

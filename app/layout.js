@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Suspense } from "react";
-import { Loading } from "@/app/loading"
+import Loading from "@/app/loading"
 import localFont from "next/font/local";
 import { Provider } from "@/app/provider";
 import { MainContent } from "@/components/MainContent";
@@ -75,17 +75,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <Provider>
-      <Suspense fallback={<Loading/>}>
       <html className="scroll-smooth" lang="ua">
         <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
           <div className="flex w-full flex-col">
+          <Suspense fallback={<Loading/>}>
              <MainContent>
               {children}
-             </MainContent>
+              </MainContent>
+              </Suspense>
           </div>
         </body>
       </html>
-      </Suspense>
     </Provider>
   );
 }
