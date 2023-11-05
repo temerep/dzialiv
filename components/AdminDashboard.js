@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { authHost, host } from "@/http";
-import EditModal from "./EditModal";
+import EditModal from "@/components/EditModal";
+import Table from "@/components/Table"
 
 const AdminDashboard = () => {
   const [products, setProducts] = useState(null);
@@ -90,7 +91,18 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-
+          <div>
+          {products && <Table data={products} />}
+          </div>
+          <div>
+          {services && <Table data={services} />}
+          </div>
+          <div>
+          {subcategories && <Table data={subcategories} />}
+          </div>
+          <div>
+          {slider && <Table data={slider} />}
+          </div>
         </div>
       </div>
     </>

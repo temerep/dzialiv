@@ -4,11 +4,11 @@ import Image from "next/image";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BeatLoader } from 'react-spinners';
 
-export default function Loading() {
+export default function Loader() {
   return (
-    <main>
+    <div className="h-full z-50">
      <LazyLoadImage
-        src="../public/photos/logo.webp"
+        src="../public/logo.webp"
         alt="logo"
         style={{
           width: "200px",
@@ -16,7 +16,7 @@ export default function Loading() {
           top: "45%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          zIndex: 1,
+          zIndex: 50,
         }}
       />
       <BeatLoader
@@ -24,6 +24,6 @@ export default function Loading() {
         loading={true}
         cssOverride={{ position: "absolute", left: "50%", top: "55%" }}
       />
-    </main>
+    </div>
   );
 }

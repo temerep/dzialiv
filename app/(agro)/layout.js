@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { authHost, host } from "@/http/index";
+import { useEffect, useState } from "react";
+import { host } from "@/http";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function ProductLayout({ children }) {
@@ -10,7 +10,6 @@ export default function ProductLayout({ children }) {
 
   const [products, setProducts] = useState(null);
   const [services, setServices] = useState(null);
-  const [slider, setSlider] = useState(null);
   const [subcategories, setSubcategories] = useState(null);
 
   useEffect(() => {
@@ -27,15 +26,6 @@ export default function ProductLayout({ children }) {
       .get("api/services")
       .then((response) => {
         setServices(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
-
-  useEffect(() => {
-    host
-      .get("api/slider")
-      .then((response) => {
-        setSlider(response.data);
       })
       .catch((e) => console.log(e.response.data.message));
   }, []);

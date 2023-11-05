@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useState } from "react";
-import { host } from "@/http/index";
+import { useEffect, useState } from "react";
+import { host } from "@/http";
 import { Grid } from "@/components/Grid";
 import { Card } from "@/components/Card";
 import { usePathname, useRouter } from "next/navigation";

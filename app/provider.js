@@ -6,7 +6,7 @@ const AdminStoreContext = createContext();
 
 export const Provider = ({ children }) => {
   return (
-    <AdminStoreContext.Provider value={{admin: new AdminStore()}}>
+    <AdminStoreContext.Provider value={{ admin: new AdminStore() }}>
       {children}
     </AdminStoreContext.Provider>
   )

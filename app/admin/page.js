@@ -1,9 +1,9 @@
 "use client"
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import Login from "@/components/Login";
 import AdminDashboard from '@/components/AdminDashboard';
 
-import {observer} from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
 import { useAdminStore } from "@/app/provider";
 import { authHost } from '@/http';
 import jwt_decode from "jwt-decode";

@@ -1,8 +1,11 @@
 import "./globals.css";
+import { Suspense } from "react";
+import { Loading } from "@/app/loading"
 import localFont from "next/font/local";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import {Provider} from "@/app/provider";
+import { Provider } from "@/app/provider";
+import { MainContent } from "@/components/MainContent";
+import { host } from "@/http";
+import dataStore from "@/store/DataStore";
 
 
 const exo = localFont({
@@ -36,22 +39,53 @@ export const metadata = {
   icons: {
     icon: "favicon.ico",
   },
+  keywords: [
+    "фг дзялів", "фермерське господарство", "фг жмеринка", "дзялів жмеринка", "дзялів вінниця", "дзялів україна", "фг вінниця", "овочі", " зерно", "зерно україна", "зерно жмеринка",
+    "fg dzaliv",
+  "farm",
+  "fg zhymerynka",
+  "dzaliv zhymerynka",
+  "dzaliv vinnytsia",
+  "dzaliv ukraine",
+  "fg vinnytsia",
+  "vegetables",
+  "grain",
+  "grain ukraine",
+  "grain zhymerynka",
+  "bauernhof",
+  "gemüse",
+  "getreide",
+  "getreide ukraine",
+  "getreide zhymerynka",
+  "farma",
+  "warzywa",
+  "zboże",
+  "zboże ukraine",
+  "Ūkininkų ūkis",
+  "daržovės",
+  "grūdai",
+  "grūdai ukraine",
+  "fermă",
+  "legume",
+  "cereale",
+  "cereale ucraina",
+]
 };
 
 export default function RootLayout({ children }) {
   return (
     <Provider>
+      <Suspense fallback={<Loading/>}>
       <html className="scroll-smooth" lang="ua">
         <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
           <div className="flex w-full flex-col">
-            <Header />
-            {/* <Suspense fallback={<Loading/>}> */}
-            <main className="flex w-full ">{children}</main>
-            {/* </Suspense> */}
-            <Footer />
+             <MainContent>
+              {children}
+             </MainContent>
           </div>
         </body>
       </html>
+      </Suspense>
     </Provider>
   );
 }

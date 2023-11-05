@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid } from "@/components/Grid";
 import { Slideshow } from "@/components/Slideshow";
 import { LuWheat } from "react-icons/lu";
@@ -62,8 +62,7 @@ export default function Home() {
           <p className="text-stone-600 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Свіжість з поля - завжди першість! Отримайте ексклюзивний доступ до наших натуральних смаків у вашому дому</p>
           <div className="py-5 md:py-10">
             <Grid>
-              {subcategories &&
-                subcategories.map((el) => {
+              { subcategories?.map((el) => {
                 return (
                     <Card key={el.name} source={el.category_id+"/"+el.link} title={el.name} img={el.img} desc={el.desc} />
                 );
@@ -79,8 +78,7 @@ export default function Home() {
           <p className="text-stone-200 text-xl mt-10 px-10 lg:max-w-[50vw] text-center">Спеціалізована експертиза для вашого успішного фермерства. Дізнайтеся, як ми можемо підтримати вашу агропродукцію і бізнес.</p>
           <div className="py-5 md:py-10">
             <Grid>
-              {services &&
-                services.map((el) => {
+              { services?.map((el) => {
                 return (
                   <Card key={el.name} source={el.category_id+"/"+el.link} title={el.name} img={el.img} desc={el.desc} />
                 );
