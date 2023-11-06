@@ -5,8 +5,9 @@ import { host } from "@/http";
 import { useRouter, usePathname } from "next/navigation";
 import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import localize from "@/app/localize";
 
-export default function ProductLayout({ children }) {
+const ProductLayout = observer(({ children }) => {
   const {locale} = useLocalizationStore();
   const router = useRouter();
   const pathname = usePathname();
@@ -48,32 +49,29 @@ export default function ProductLayout({ children }) {
           <button className="text-white bg-emerald-700">
             <Link href="/products">
               <div className="flex items-center justify-between h-12 px-3 text-xl font-bold">
-                <span className="truncate">Продукція</span>
+                <span className="truncate">{localize("Продукція", locale.current)}</span>
               </div>
             </Link>
           </button>
-          {subcategories &&
-            subcategories.map((el) => {
+          { subcategories?.map((el) => {
             return (
               <>
                 <button className="group border-b border-stone-300 bg-white focus:outline-none">
                   <div className="flex items-center justify-between h-12 px-3 font-semibold hover:bg-stone-200 group-focus:bg-stone-200">
                     <Link href={`/${el.category_id}/${el.link}`}>
-                    <span className="truncate cursor-pointer hover:text-emerald-600">{el.name}</span>
+                    <span className="truncate cursor-pointer hover:text-emerald-600">{localize(el.name, locale.current)}</span>
                     </Link>
                     <svg className="h-5 w-5 duration-300 group-focus:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div className="max-h-0 overflow-hidden duration-300 group-focus:max-h-full">
-                    {products &&
-                    products
-                      .filter((item) => item.subcategory_id == el.link)
-                      .map((itm) => {
+                    {products?.filter((item) => item.subcategory_id == el.link)
+                      ?.map((itm) => {
                         return (
                           <>
                             <Link className="flex items-center h-8 px-4 text-sm hover:bg-stone-200" href={"/products/" + el.link + "/" + itm.link}>
-                              {itm.name}
+                              {localize(itm.name, locale.current)}
                             </Link>
                           </>
                         );
@@ -87,18 +85,17 @@ export default function ProductLayout({ children }) {
           <button className="text-white bg-emerald-700">
             <Link href="/services">
               <div className="flex items-center justify-between h-12 px-3 text-xl font-bold">
-                <span className="truncate">Послуги</span>
+                <span className="truncate">{localize("Послуги", locale.current)}</span>
               </div>
             </Link>
           </button>
-          {services &&
-          services.map((el) => {
+          {services?.map((el) => {
             return (
               <>
                 <Link href={"/services/" + el.link}>
                 <button className="group border-b w-full border-stone-300 bg-white focus:outline-none">
                   <div className="flex items-center h-12 px-3 font-semibold hover:bg-stone-200 group-focus:bg-stone-200">
-                    <span className="truncate">{el.name}</span>
+                    <span className="truncate">{localize(el.name, locale.current)}</span>
                   </div>
                 </button>
                 </Link>
@@ -110,4 +107,6 @@ export default function ProductLayout({ children }) {
       {children}
     </>
   );
-}
+});
+
+export default ProductLayout;

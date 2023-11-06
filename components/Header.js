@@ -57,12 +57,6 @@ const Header = observer(() => {
 
   return (
     <>
-      {/* <div className=" sm:hidden fixed bg-emerald-600 p-5 rounded-full bottom-2 left-2 border-4 border-emerald-700 drop-shadow-lg animate-bounce z-50">
-        <a href="tel:+380000000">
-          <ImPhone size="2em" className="text-white" />
-        </a>
-      </div> */}
-
       {/* верхня панель контактів та мови */}
       <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-50">
         <div className="md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto ">

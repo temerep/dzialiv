@@ -1,5 +1,4 @@
-import  { Loader }  from "@/components/Loader"
-const Loading = () => {
+import { Loader }  from "@/components/Loader";
+export default function Loading() {
   return <Loader />
 }
-export default Loading;

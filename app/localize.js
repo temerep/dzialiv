@@ -7,21 +7,25 @@ const localize =  async (text, locale) => {
   const data = {
     q: text,
   };
-
-  if (locale === "uk") {
-    return text;
-  } else {
-    const translation =  await axios
-    .post(
-      apiUrl,
-      data,
-      { params:
-        { 
-          key: apiKey,
-          target: locale
-        }
-      })
-    return translation?.data?.data?.translations[0]?.translatedText;
+  try {
+    if (locale === "uk") {
+      return text;
+    } else {
+      const translation = await axios
+        .post(
+          apiUrl,
+          data,
+          {
+            params:
+            {
+              key: apiKey,
+              target: locale
+            }
+          })
+      return translation?.data?.data?.translations[0]?.translatedText;
+    }
+  } catch (error) {
+    console.error('Translation error:', error);
   }
 };
 
