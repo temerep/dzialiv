@@ -39,7 +39,9 @@ const LangSwitcher = observer(() => {
   ];
   const handleChange = (val) => {
     try {
-      localStorage.setItem("locale", val);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("locale", val);
+      }
       locale.setLocale(val);
       setTimeout(() => {window.location.reload()}, 500)
     } catch (error) {
