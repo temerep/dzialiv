@@ -8,16 +8,26 @@ const MainContent = ({children}) => {
   const [showMainContent, setShowMainContent] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShowMainContent(true);
-    }, 1000);
+    const checkDOMLoaded = () => {
+      if (document.readyState === "complete") {
+        setShowMainContent(true);
+      }
+    };
+    const intervalId = setInterval(checkDOMLoaded, 300);
+    checkDOMLoaded();
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
+
   return (
     <>
       {showMainContent ? (
         <>
           <Header />
-          <main className="flex w-full">{children}</main>
+            <main className="flex w-full">
+              {children}
+            </main>
           <Footer />
         </>
       ) : (

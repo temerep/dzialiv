@@ -3,8 +3,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { host } from "@/http";
 import { useRouter, usePathname } from "next/navigation";
+import { observer } from 'mobx-react-lite';
+import { useLocalizationStore } from "@/app/provider";
 
 export default function ProductLayout({ children }) {
+  const {locale} = useLocalizationStore();
   const router = useRouter();
   const pathname = usePathname();
 

@@ -1,11 +1,8 @@
 import "./globals.css";
-import { Suspense } from "react";
-import Loading from "@/app/loading"
 import localFont from "next/font/local";
 import { Provider } from "@/app/provider";
 import { MainContent } from "@/components/MainContent";
 import { host } from "@/http";
-import dataStore from "@/store/DataStore";
 
 
 const exo = localFont({
@@ -78,11 +75,9 @@ export default function RootLayout({ children }) {
       <html className="scroll-smooth" lang="ua">
         <body className={exo.className + " bg-emerald-600 md:bg-stone-900"}>
           <div className="flex w-full flex-col">
-          <Suspense fallback={<Loading/>}>
-             <MainContent>
-              {children}
+              <MainContent>
+                {children}
               </MainContent>
-              </Suspense>
           </div>
         </body>
       </html>

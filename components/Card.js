@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CiCircleMore } from "react-icons/ci";
 import { AiOutlineRight } from "react-icons/ai";
 
-const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
+const Card = ({ title, source, badge, desc, text, price, categories, img, btn }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -48,7 +48,7 @@ const Card = ({ title, source, badge, desc, text, price, categories, img }) => {
                     }
                   }}
                 >
-                  <span>Детальніше</span>
+                  <span>{btn}</span>
                   <AiOutlineRight size="1em" className="text-white pl-1"/>
                 </button>
               </div>
