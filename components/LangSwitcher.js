@@ -6,7 +6,11 @@ import { useLocalizationStore } from "@/app/provider";
 import { PiGlobeSimpleBold, PiPhoneCallThin, PiPhoneCallFill } from "react-icons/pi";
 
 const LangSwitcher = observer(() => { 
-  const {locale} = useLocalizationStore();
+  const { locale } = useLocalizationStore();
+  useEffect(() => {
+    const item = localStorage?.getItem('locale')
+  }, [])
+  
   const allLocales = [
     {
       locale: "en",
