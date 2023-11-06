@@ -51,7 +51,7 @@ const LangSwitcher = observer(() => {
         {
           allLocales?.map(lang => {
             return(
-            <li className="" value={lang.locale} onClick={() => handleChange(lang.locale)}>
+            <li className="" key={lang.locale} onClick={() => handleChange(lang.locale)}>
               <a className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer" role="menuitem">
                 {lang.name}
           </a>
