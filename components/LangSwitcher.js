@@ -47,7 +47,7 @@ const LangSwitcher = observer(() => {
     }
   }
   return (
-    <div className="group inline-block relative">
+    <div className="group inline-block relative z-50">
     <button className="inline-flex px-2 py-1 border-2 items-center rounded-lg border-emerald-600  md:hover:bg-emerald-600 cursor-pointer" id="language">
       <PiGlobeSimpleBold size="1.25em" color="#fff" />
       <p className="pl-1 text-white">{allLocales.find(loc => loc.locale == locale.current).name.slice(4)}</p>

@@ -58,7 +58,7 @@ const Header = observer(() => {
   return (
     <>
       {/* верхня панель контактів та мови */}
-      <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-40">
+      <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-50">
         <div className="md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto ">
           <div className="flex justify-between items-center h-14">
             <ul className="flex items-center text-white space-x-5">
