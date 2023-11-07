@@ -58,7 +58,7 @@ const Header = observer(() => {
   return (
     <>
       {/* верхня панель контактів та мови */}
-      <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-50">
+      <div className="hidden md:block sticky inset-x-0 overflow-y-visible top-0 bg-stone-900 z-40">
         <div className="md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto ">
           <div className="flex justify-between items-center h-14">
             <ul className="flex items-center text-white space-x-5">
@@ -102,7 +102,7 @@ const Header = observer(() => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
                         <Link href={"/" + el.category_id + "/" + el.link}>
-                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{localize(el.name, locale.current)}</span>
+                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
                       </li>
                     );
@@ -118,7 +118,7 @@ const Header = observer(() => {
                     return (
                       <li className="border-x-4 border-emerald-600" key={idx}>
                         <Link href={"/" + el.category_id + "/" + el.link}>
-                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer">{localize(el.name, locale.current)}</span>
+                          <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
                       </li>
                     );
@@ -148,7 +148,7 @@ const Header = observer(() => {
       </nav>
 
       {/* мобільне меню */}
-      <div id="mobile-menu" className="md:hidden fixed top-0 left-0 z-50 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-emerald-600 border-r-4 border-emerald-700 w-64">
+      <div id="mobile-menu" className="md:hidden fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-emerald-600 border-r-4 border-emerald-700 w-64">
         <div className="absolute top-0 left-0 w-full h-hull bg-black opacity-25 z-50"></div>
         <button type="button" onClick={() => setMenu(!showMenu)} className="text-white bg-transparent  text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center ">
           <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

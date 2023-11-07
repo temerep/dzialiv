@@ -3,7 +3,7 @@ import { BeatLoader } from 'react-spinners';
 
 const Loader = () => {
   return (
-    <div className="h-full z-50">
+    <div className="absolute t-0 l-0 w-full h-full bg-stone-900 z-50">
       <Image
       src="/logo.webp"
       width={100}
