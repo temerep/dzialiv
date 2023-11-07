@@ -97,10 +97,10 @@ const Header = observer(() => {
                 <Link href="/products" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">{localize("Продукція", locale.current)}</li>
                 </Link>
-                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
+                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block z-50">
                   {subcategories?.map((el, idx) => {
                     return (
-                      <li className="border-x-4 border-emerald-600" key={idx}>
+                      <li className="border-x-4 border-emerald-600 z-50" key={idx}>
                         <Link href={"/" + el.category_id + "/" + el.link}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
@@ -113,10 +113,10 @@ const Header = observer(() => {
                 <Link href="/services" className="inline-flex md:hover:bg-emerald-600 rounded-lg -skew-x-12">
                   <li className="p-3 skew-x-12">{localize("Послуги", locale.current)}</li>
                 </Link>
-                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block">
+                <ul className="absolute hidden text-gray-700 top-10 min-w-[150px] left-0 pt-5 group-hover:block z-50">
                   {services?.map((el, idx) => {
                     return (
-                      <li className="border-x-4 border-emerald-600" key={idx}>
+                      <li className="border-x-4 border-emerald-600 z-50" key={idx}>
                         <Link href={"/" + el.category_id + "/" + el.link}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
