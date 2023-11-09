@@ -1,5 +1,11 @@
+"use client"
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useLocalizationStore } from "@/app/provider";
+import localize from "@/app/localize";
+
 export default function About() {
+  const { locale } = useLocalizationStore();
   return (
     <div className="flex flex-col w-full overflow-hidden overscroll-hidden">
       <section className="p-5 py-12 min-[1080px]:p-20 bg-stone-100 w-full" id="about">
@@ -8,12 +14,11 @@ export default function About() {
             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
               <div className="lg:max-w-md">
                 <div className="px-4 pl-4 mb-6 border-l-4 border-emerald-500">
-                  <span className="text-sm uppercase text-gray-500">Хто ми?</span>
-                  <h1 className="mt-2 text-3xl font-black md:text-5xl text-emerald-600">Про компанію</h1>
+                  <span className="text-sm uppercase text-gray-500">{localize("Хто ми?", locale.current)}</span>
+                  <h1 className="mt-2 text-3xl font-black md:text-5xl text-emerald-600">{localize("Про компанію", locale.current)}</h1>
                 </div>
                 <p className="px-4 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
-                  Ми - фермерське господарство, яке було засновано більше 17 років тому у с. Камʼяногірка, Вінницьої області. За цей час ми стали лідерами у вирощуванні та продажу зернових, овочів і
-                  фруктів у регіоні. Наша місія - надавати нашим клієнтам найкращу якість продукції, дбайливо вирощену з любовʼю та повагою до природи.
+                  {localize("Ми - фермерське господарство, яке було засновано більше 17 років тому у с. Камʼяногірка, Вінницьої області. За цей час ми стали лідерами у вирощуванні та продажу зернових, овочів і фруктів у регіоні. Наша місія - надавати нашим клієнтам найкращу якість продукції, дбайливо вирощену з любовʼю та повагою до природи.", locale.current)}
                 </p>
               </div>
             </div>
@@ -36,10 +41,10 @@ export default function About() {
             <div className="px-4 mb-10 w-full lg:mb-0">
               <div className="w-full mx-auto">
               <div className="pl-4 mb-6 border-l-4 border-stone-100">
-                  <h1 className="mt-2 text-3xl font-black md:text-5xl text-white">Наша команда</h1>
+                  <h1 className="mt-2 text-3xl font-black md:text-5xl text-white">{localize("Наша команда", locale.current)}</h1>
               </div>
               <p className="px-4 mb-10 text-base leading-7 text-stone-200">
-                Наш успіх - це результат невтомної роботи та пристрасного підходу нашої команди. Ось обличя, які стоять за успішним фермерським господарством «Дзялів»:
+                  {localize("Наш успіх - це результат невтомної роботи та пристрасного підходу нашої команди. Ось обличя, які стоять за успішним фермерським господарством «Дзялів»:", locale.current)}
                 </p>
                 <div className="grid gap-12 items-center md:grid-cols-3">
                   <div className="space-y-4 text-center">

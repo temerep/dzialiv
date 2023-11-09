@@ -67,7 +67,7 @@ const Header = () => {
                   {subcategories?.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600 z-50" key={idx}>
-                        <Link href={"/" + el.category_id + "/" + el.link}>
+                        <Link href={`/${el.category_id}/${el.link}`}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
                       </li>
@@ -83,7 +83,7 @@ const Header = () => {
                   {services?.map((el, idx) => {
                     return (
                       <li className="border-x-4 border-emerald-600 z-50" key={idx}>
-                        <Link href={"/" + el.category_id + "/" + el.link}>
+                        <Link href={`/${el.category_id}/${el.link}`}>
                           <span className="flex bg-white px-4 py-2 text-sm text-stone-700 hover:bg-stone-100 active:bg-emerald-100 cursor-pointer z-50">{localize(el.name, locale.current)}</span>
                         </Link>
                       </li>
@@ -154,13 +154,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="space-y-3">
-            {/* <div className="flex mt-10 text-white decoration-2 hover:underline decoration-emerald-600 cursor-pointer" onClick={() => setMenu(!showMenu)}>
-              <PiPhoneCallThin size="1.25em" color="#fff" className="mr-2" />
-              +38 (096)-427-13-75
-            </div> */}
             <LangSwitcher/>
-          </div>
         </div>
       </div>
     </>
