@@ -8,33 +8,14 @@ import { MdMiscellaneousServices } from "react-icons/md";
 import { GiTomato } from "react-icons/gi";
 import Image from "next/image";
 import { Card } from "@/components/Card";
-import { host } from '@/http';
-import { observer } from 'mobx-react-lite';
+import { GetData } from "@/utils";
 import { useLocalizationStore } from "@/app/provider";
 import localize from "@/app/localize";
 
-const Home = observer(() => {
-  const {locale} = useLocalizationStore();
-  const [services, setServices] = useState(null);
-  const [subcategories, setSubcategories] = useState(null);
-
-  useEffect(() => {
-    host
-      .get("api/services")
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
-
-  useEffect(() => {
-    host
-      .get("api/subcategory")
-      .then((response) => {
-        setSubcategories(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
+const Home = () => {
+  const { locale } = useLocalizationStore();
+  const services = GetData("api/services");
+  const subcategories = GetData("api/subcategory");
 
   return (
     <>
@@ -109,5 +90,5 @@ const Home = observer(() => {
       </main>
     </>
   );
-});
+};
 export default Home;

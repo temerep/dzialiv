@@ -1,28 +1,18 @@
 "use client"
-import { useEffect, useState } from "react";
-import { host } from "@/http";
-import { Zoom } from "react-slideshow-image";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Zoom } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs"
-import Image from "next/image";
-import { observer } from 'mobx-react-lite';
+import { GetData } from "@/utils";
 import { useLocalizationStore } from "@/app/provider";
 import localize from "@/app/localize";
 
-const Slideshow = observer(() => {
+const Slideshow = () => {
   const {locale} = useLocalizationStore();
-  const [slider, setSlider] = useState(null);
-
-  useEffect(() => {
-    host
-      .get("api/slider")
-      .then((response) => {
-        setSlider(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
+  const slider = GetData("api/slider");
 
   const zoomInProperties = {
     scale: 1,
@@ -66,6 +56,6 @@ const Slideshow = observer(() => {
       </div>
     </>
   );
-});
+};
 
 export { Slideshow };

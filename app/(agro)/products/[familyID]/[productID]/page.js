@@ -1,24 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import { host } from "@/http";
 import Image from "next/image";
 import Link from "next/link";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const ProductItem = observer(({ params }) => {
+export default function ProductItem ({ params }) {
   const { locale } = useLocalizationStore();
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    host
-      .get(`api/product?link=${params.productID}`)
-      .then((response) => {
-        setProduct(response.data[0]);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, [params]);
+  const product = GetData("api/product", {link: params.productID})?.[0]
 
   return (
     <>
@@ -35,6 +24,4 @@ const ProductItem = observer(({ params }) => {
       </main>
     </>
   );
-});
-
-export default ProductItem;
+};

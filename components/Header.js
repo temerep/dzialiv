@@ -6,34 +6,15 @@ import { LangSwitcher } from "@/components/LangSwitcher"
 import { ImPhone } from "react-icons/im";
 import { HiMail } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { host } from "@/http";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const Header = observer(() => {
+const Header = () => {
   const { locale } = useLocalizationStore();
-  const [services, setServices] = useState(null);
-  const [subcategories, setSubcategories] = useState(null);
+  const services = GetData("api/services");
+  const subcategories = GetData("api/subcategory");
   const [showMenu, setMenu] = useState(false);
-
-  useEffect(() => {
-    host
-      .get("api/services")
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
-
-  useEffect(() => {
-    host
-      .get("api/subcategory")
-      .then((response) => {
-        setSubcategories(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
 
   useEffect(() => {
     const mobile = document.querySelector("#mobile-menu");
@@ -184,6 +165,6 @@ const Header = observer(() => {
       </div>
     </>
   );
-});
+};
 
 export { Header };

@@ -1,47 +1,20 @@
-"use client";
+"use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { host } from "@/http";
 import { useRouter, usePathname } from "next/navigation";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const ProductLayout = observer(({ children }) => {
+export default function ProductLayout ({ children }) {
   const {locale} = useLocalizationStore();
   const router = useRouter();
   const pathname = usePathname();
 
-  const [products, setProducts] = useState(null);
-  const [services, setServices] = useState(null);
-  const [subcategories, setSubcategories] = useState(null);
+  const products = GetData("api/product");
+  const services = GetData("api/services");
+  const subcategories = GetData("api/subcategory");
 
-  useEffect(() => {
-    host
-      .get("api/product")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
-
-  useEffect(() => {
-    host
-      .get("api/services")
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
-
-  useEffect(() => {
-    host
-      .get("api/subcategory")
-      .then((response) => {
-        setSubcategories(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
   return (
     <>
       <aside className="hidden sm:block sticky overflow-hidden left-0 top-34 w-96 bg-white border-r border-stone-300">
@@ -107,6 +80,4 @@ const ProductLayout = observer(({ children }) => {
       {children}
     </>
   );
-});
-
-export default ProductLayout;
+};

@@ -1,27 +1,16 @@
 "use client"
-import { useEffect, useState } from "react";
-import { host } from "@/http";
 import { Grid } from "@/components/Grid";
 import { Card } from "@/components/Card";
 import { usePathname, useRouter } from "next/navigation";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const Products = observer(() => {
+const Products = () => {
   const pathname = usePathname();
   const router = useRouter();
-
   const { locale } = useLocalizationStore();
-  const [subcategories, setSubcategories] = useState(null);
-  useEffect(() => {
-    host
-      .get("api/subcategory")
-      .then((response) => {
-        setSubcategories(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
+  const subcategories = GetData("api/subcategory");
   return (
     <>
       <main className="flex flex-col items-center w-full md:p-5 bg-stone-100">
@@ -38,6 +27,6 @@ const Products = observer(() => {
       </main>
     </>
   )
-});
+};
 
 export default Products;

@@ -1,23 +1,14 @@
 "use client"
 import { useEffect, useState } from "react";
-import { host } from "@/http/index";
 import { Grid } from "@/components/Grid";
 import { Card } from "@/components/Card";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const Services = observer(() => {
+export default function Services () {
   const { locale } = useLocalizationStore();
-  const [services, setServices] = useState(null);
-  useEffect(() => {
-    host
-      .get("api/services")
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, []);
+  const services = GetData("api/services");
   return (
     <>
       <main className="flex flex-col items-center w-full p-5 bg-stone-200">
@@ -34,5 +25,4 @@ const Services = observer(() => {
       </main>
     </>
   );
-});
-export default Services;
+};

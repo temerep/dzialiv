@@ -1,23 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { host } from "@/http";
 import Image from "next/image";
 import Link from "next/link";
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
+import { GetData } from "@/utils";
 import localize from "@/app/localize";
 
-const ServicesItem = observer(({ params }) => {
+export default function ServicesItem ({ params }) {
   const { locale } = useLocalizationStore();
-  const [service, setService] = useState(null);
-  useEffect(() => {
-    host
-      .get(`api/services?link=${params.serviceID}`)
-      .then((response) => {
-        setService(response.data[0]);
-      })
-      .catch((e) => console.log(e.response.data.message));
-  }, [params]);
+  const service = GetData("api/services", {link: params.serviceID})?.[0]
+
   return (
     <>
       <main className="flex min-h-[80vh] flex-col w-full p-5 bg-white">
@@ -33,6 +25,4 @@ const ServicesItem = observer(({ params }) => {
       </main>
     </>
   );
-});
-
-export default ServicesItem;
+};

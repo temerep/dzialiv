@@ -6,11 +6,10 @@ import { HiMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { host } from '@/http';
 import { Button } from '@nextui-org/react';
-import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
 import localize from "@/app/localize";
 
-const Contacts = observer(() => {
+export default function Contacts () {
   const { locale } = useLocalizationStore();
   const initValues = { name: "", email: "", phone: "", message: "" };
   const initState = { values: initValues };
@@ -168,6 +167,4 @@ const Contacts = observer(() => {
       </div>
     </>
   );
-});
-
-export default Contacts;
+};

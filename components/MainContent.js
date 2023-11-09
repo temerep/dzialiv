@@ -13,7 +13,7 @@ const MainContent = ({children}) => {
         setShowMainContent(true);
       }
     };
-    const intervalId = setInterval(checkDOMLoaded, 300);
+    const intervalId = setInterval(checkDOMLoaded, 500);
     checkDOMLoaded();
     return () => {
       clearInterval(intervalId);
