@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@google-cloud/translate": "^8.0.2",
-    "@nextui-org/react": "^2.1.13",
+    "@nextui-org/react": "^2.2.8",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.1",
     "bing-translate-api": "^2.9.2",

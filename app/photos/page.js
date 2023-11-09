@@ -1,11 +1,15 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { observer } from 'mobx-react-lite';
+import { useLocalizationStore } from "@/app/provider";
+import localize from "@/app/localize";
 
-export default function Photo() {
+const Photo = observer(() => {
+  const {locale} = useLocalizationStore();
   const [selectedImage, setSelectedImage] = useState(null);
   const tmp_img = [
-    { name: "Пшениця", src: "/photos/about_1.webp" },
+    { name: "", src: "/photos/about_1.webp" },
   ];
 
   return (
@@ -14,8 +18,8 @@ export default function Photo() {
     <div className="px-4 md:px-8">
         <div className="mb-4 flex gap-8 sm:mb-8 md:mb-12">
             <div className="flex flex-col gap-y-5">
-                <h2 className="text-3xl font-bold text-gray-800 lg:text-5xl">Галерея</h2>
-                <p className="hidden text-gray-500 md:block">Ділимося досягненнями та робочим процесом разом із Вами.</p>
+                <h2 className="text-3xl font-bold text-gray-800 lg:text-5xl">{localize("Галерея", locale.current)}</h2>
+                <p className="hidden text-gray-500 md:block">{localize("Ділимося досягненнями та робочим процесом разом із Вами.", locale.current)}</p>
             </div>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6 xl:gap-8">
@@ -59,4 +63,6 @@ export default function Photo() {
 </div>
     </>
   );
-}
+});
+
+export default Photo;

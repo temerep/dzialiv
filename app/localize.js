@@ -22,7 +22,11 @@ const localize =  async (text, locale) => {
               target: locale
             }
           })
-      return translation?.data?.data?.translations[0]?.translatedText;
+          if(translation) {
+            return translation?.data?.data?.translations[0]?.translatedText;
+          } else {
+            return text;
+          }
     }
   } catch (error) {
     console.error('Translation error:', error);

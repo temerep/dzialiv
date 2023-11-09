@@ -6,11 +6,21 @@ import { HiMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { host } from '@/http';
 import { Button } from '@nextui-org/react';
+import { observer } from 'mobx-react-lite';
+import { useLocalizationStore } from "@/app/provider";
+import localize from "@/app/localize";
 
-export default function Contacts() {
+const Contacts = observer(() => {
+  const { locale } = useLocalizationStore();
   const initValues = { name: "", email: "", phone: "", message: "" };
   const initState = { values: initValues };
-  
+
+  const [placeholderName, setPlaceholderName] = useState('Ваше імʼя');
+  const [placeholderEmail, setPlaceholderEmail] = useState('E-mail');
+  const [placeholderPhone, setPlaceholderPhone] = useState('Номер телефону');
+  const [placeholderMsg, setPlaceholderMsg] = useState('Ваше повідомлення');
+  const [placeholderBtn, setPlaceholderBtn] = useState('Відправити');
+
   const [state, setState] = useState(initState);
 
   const { values, isLoading } = state;
@@ -24,6 +34,24 @@ export default function Contacts() {
       },
     }))
   };
+
+  useEffect(() => {
+    async function fetchLocalizedText() {
+      const namePlaceholder = await localize("Ваше імʼя", locale.current);
+      const emailPlaceholder = await localize("E-mail", locale.current);
+      const phonePlaceholder = await localize("Номер телефону", locale.current);
+      const msgPlaceholder = await localize("Ваше повідомлення", locale.current);
+      const btnPlaceholder = await localize("Відправити", locale.current);
+
+      setPlaceholderName(namePlaceholder);
+      setPlaceholderEmail(emailPlaceholder);
+      setPlaceholderPhone(phonePlaceholder);
+      setPlaceholderMsg(msgPlaceholder);
+      setPlaceholderBtn(btnPlaceholder);
+    }
+
+    fetchLocalizedText();
+  }, []);
 
   const onSubmit = async () => {
     setState((prev) => ({
@@ -57,25 +85,25 @@ export default function Contacts() {
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
             <div className="flex">
               <h1 className="font-bold text-stone-800 text-3xl mb-5">
-              Якщо у Вас виникли питання або Ви бажаєте зробити замовлення, заповніть форму 
+                {localize("Якщо у Вас виникли питання або Ви бажаєте зробити замовлення, заповніть форму", locale.current)}
               </h1>
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" value={values.name} onChange={handleChange} type="text" name="name" placeholder="Ваше імʼя" />
-              <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" value={values.email} onChange={handleChange} type="text" name="email" placeholder="E-mail" />
+              <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" value={values.name} onChange={handleChange} type="text" name="name" placeholder={placeholderName} />
+              <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" value={values.email} onChange={handleChange} type="text" name="email" placeholder={placeholderEmail} />
             </div>
             <InputMask
-                      mask="+99-999-999-99-99"
-                      maskChar={null}
-                      name="phone"
-                      id="phone"
-                      value={values.phone}
-                      placeholder="Номер телефону"
-                      className="mt-5 w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                      onChange={handleChange}
-                    />
+              mask="+99-999-999-99-99"
+              maskChar={null}
+              name="phone"
+              id="phone"
+              value={values.phone}
+              placeholder={placeholderPhone}
+              className="mt-5 w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              onChange={handleChange}
+            />
             <div className="my-4">
-              <textarea placeholder="Ваше повідомлення" name="message" value={values.message} onChange={handleChange} className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" ></textarea>
+              <textarea placeholder={placeholderMsg} name="message" value={values.message} onChange={handleChange} className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" ></textarea>
             </div>
             <div className="my-2 w-1/2 lg:w-1/4">
               <Button
@@ -108,7 +136,7 @@ export default function Contacts() {
                 }
                 onClick={onSubmit}
               >
-                Відправити
+                {placeholderBtn}
               </Button>
             </div>
           </div>
@@ -116,13 +144,13 @@ export default function Contacts() {
           <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-5 ml-auto  border-4 border-emerald-800 bg-emerald-600 rounded-2xl">
             <div className="flex flex-col text-white">
               <div className="flex items-center">
-              <Image src="/logo.webp" width={100} height={100} alt=""/>
-              <h1 className="font-bold text-4xl ml-3 my-4">ФГ «Дзялів»</h1>
+                <Image src="/logo.webp" width={100} height={100} alt="" />
+                <h1 className="font-bold text-4xl ml-3 my-4">{locale.current === "uk" ? "ФГ «Дзялів»" : "FG «Dzialiv»"}</h1>
               </div>
               <div className="flex my-4 w-2/3 lg:w-full">
                 <div className="flex flex-col">
-                  <h2 className="text-2xl p-2 font-medium">вул. Перемоги, 3</h2>
-                  <p className=" text-lg px-2">с. Камʼяногірна, Вінницької обл.</p>
+                  <h2 className="text-2xl p-2 font-medium">{localize("вулиця Перемоги, 3", locale.current)}</h2>
+                  <p className=" text-lg px-2">{localize("село Камʼяногірна, Вінницької обл.", locale.current)}</p>
                 </div>
               </div>
 
@@ -131,7 +159,7 @@ export default function Contacts() {
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex items-center p-2 bg-white w-full rounded-lg cursor-pointer"><HiMail size="1em" className="text-emerald-600 mr-2"/><h2 className="text-xl text-stone-800">dzyaliv@ukr.net</h2></div>
+                  <div className="flex items-center p-2 bg-white w-full rounded-lg cursor-pointer"><HiMail size="1em" className="text-emerald-600 mr-2" /><h2 className="text-xl text-stone-800">dzyaliv@ukr.net</h2></div>
                 </div>
               </div>
             </div>
@@ -140,4 +168,6 @@ export default function Contacts() {
       </div>
     </>
   );
-}
+});
+
+export default Contacts;

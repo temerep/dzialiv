@@ -9,28 +9,13 @@ import { useEffect, useState } from "react";
 import { host } from "@/http";
 import { observer } from 'mobx-react-lite';
 import { useLocalizationStore } from "@/app/provider";
-// import localize from "@/app/localize";
+import localize from "@/app/localize";
 
 const Header = observer(() => {
   const { locale } = useLocalizationStore();
-  
-  const localize = (text, lang) => { 
-    return text;
-  }
-
-  const [products, setProducts] = useState(null);
   const [services, setServices] = useState(null);
   const [subcategories, setSubcategories] = useState(null);
   const [showMenu, setMenu] = useState(false);
-
-  useEffect(() => {
-    host
-      .get("api/product")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
 
   useEffect(() => {
     host
@@ -129,7 +114,7 @@ const Header = observer(() => {
                 <li className="p-3 skew-x-12">{localize("Фото", locale.current)}</li>
               </Link>
               <Link href="/contacts">
-              <li className="bg-emerald-600 hidden lg:flex items-center max-w-min -skew-x-12 p-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
+              <li className="bg-emerald-600 hidden lg:flex items-center -skew-x-12 p-3 rounded-md drop-shadow-xl hover:bg-emerald-300 cursor-pointer select-none">
                 <HiMail className="mr-1 animate-pulse skew-x-12" size="1.25em" color="#fff" />
                 <span className="animate-pulse skew-x-12">{localize("Звʼязатися", locale.current)}</span>
               </li>
